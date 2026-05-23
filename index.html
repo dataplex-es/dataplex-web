@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dataplex — Consultoría y desarrollo de analítica avanzada de datos e inteligencia artificial. Intelligence beyond data.">
+  <meta property="og:title" content="Dataplex — Intelligence Beyond Data">
+  <meta property="og:description" content="Transformamos datos complejos en decisiones que impulsan el negocio.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dataplex.es">
+  <title>Dataplex — Intelligence Beyond Data</title>
+
+  <!-- SVG favicon: pixel logo -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='9 20 43 43'%3E%3Crect width='100%25' height='100%25' fill='%230a0a0f'/%3E%3Crect x='10' y='21' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='17' y='21' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='31' y='21' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='45' y='21' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='10' y='28' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='45' y='28' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='24' y='35' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='31' y='35' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='24' y='42' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='31' y='42' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='10' y='49' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='45' y='49' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='10' y='56' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='17' y='56' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='31' y='56' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='45' y='56' width='6' height='6' fill='%2300aaff'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════════════ */
+:root {
+  --bg:       #0a0a0f;
+  --sf:       #0d0d15;
+  --sf2:      #111118;
+  --bd:       #1a1a2a;
+  --bd2:      #222235;
+  --ac:       #00aaff;
+  --ac-low:   rgba(0,170,255,.06);
+  --ac-mid:   rgba(0,170,255,.14);
+  --ac-glow:  rgba(0,170,255,.28);
+  --tx:       #d6daea;
+  --tx2:      #72728a;
+  --tx3:      #2e2e48;
+  --mono:     'Space Mono', monospace;
+  --disp:     'Syne', sans-serif;
+  --cond:     'Barlow Condensed', sans-serif;
+  --nav-h:    66px;
+  --max-w:    1100px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--tx);
+  font-family:var(--cond);
+  font-weight:400;
+  font-size:17px;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{cursor:pointer;font-family:inherit}
+
+/* ═══════════════════════════════════════════════════════
+   GRID BACKGROUND
+═══════════════════════════════════════════════════════ */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(var(--ac-low) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ac-low) 1px, transparent 1px);
+  background-size:44px 44px;
+  pointer-events:none;
+  z-index:0;
+}
+nav,main,footer{position:relative;z-index:1}
+
+/* ═══════════════════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════════════════ */
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 36px}
+
+.tag{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--mono);font-size:9px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--ac);
+  border:1px solid rgba(0,170,255,.22);padding:5px 13px;
+  background:var(--ac-low);
+}
+.tag .blink{
+  width:5px;height:5px;border-radius:50%;background:var(--ac);
+  animation:blink 1.6s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+
+.sec-label{
+  font-family:var(--mono);font-size:9px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--ac);margin-bottom:10px;
+}
+.sec-h{
+  font-family:var(--disp);font-weight:800;
+  font-size:clamp(26px,4.5vw,44px);color:#fff;
+  letter-spacing:1px;line-height:1.08;text-transform:uppercase;
+}
+.sec-p{
+  color:var(--tx2);font-size:16px;font-weight:300;
+  max-width:540px;line-height:1.75;margin-top:12px;
+}
+
+.btn{
+  display:inline-block;
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:13px 26px;transition:all .18s;
+}
+.btn-green{background:var(--ac);color:var(--bg);font-weight:700}
+.btn-green:hover{filter:brightness(1.14)}
+.btn-outline{color:var(--ac);border:1px solid rgba(0,170,255,.3)}
+.btn-outline:hover{border-color:var(--ac);background:var(--ac-low)}
+
+/* ═══════════════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;
+  height:var(--nav-h);
+  background:rgba(10,10,15,.88);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--bd);
+  z-index:100;
+}
+.nav-in{
+  display:flex;align-items:center;
+  justify-content:space-between;height:100%;
+}
+.nav-logo{display:flex;align-items:center;gap:11px;transition:opacity .2s}
+.nav-logo:hover{opacity:.8}
+.nav-logo-svg{display:block;flex-shrink:0}
+.nav-brand{
+  font-family:var(--disp);font-weight:800;font-size:17px;
+  color:#fff;letter-spacing:-.3px;
+}
+.nav-links{display:flex;align-items:stretch;height:100%}
+.nav-links a{
+  display:flex;align-items:center;
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--tx2);padding:0 18px;
+  border-right:1px solid var(--bd);
+  transition:color .2s;
+}
+.nav-links a:first-child{border-left:1px solid var(--bd)}
+.nav-links a:hover,.nav-links a.active{color:var(--ac)}
+.nav-cta{
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--ac);border:1px solid rgba(0,170,255,.35);
+  padding:9px 18px;margin-left:18px;transition:all .2s;
+}
+.nav-cta:hover{background:var(--ac);color:var(--bg)}
+
+/* ═══════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;
+  padding:calc(var(--nav-h) + 72px) 0 80px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;align-items:center;
+}
+.hero-badge{margin-bottom:26px}
+.hero h1{
+  font-family:var(--disp);font-weight:800;
+  font-size:clamp(56px,9vw,100px);
+  color:#fff;letter-spacing:-3px;line-height:.92;
+  margin-bottom:18px;
+}
+.hero-strap{
+  font-family:var(--mono);
+  font-size:clamp(10px,1.3vw,12px);
+  letter-spacing:4px;text-transform:uppercase;
+  color:var(--ac);margin-bottom:26px;
+}
+.hero-desc{
+  font-size:clamp(15px,1.8vw,18px);
+  color:var(--tx2);font-weight:300;
+  max-width:460px;line-height:1.72;margin-bottom:38px;
+}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+.hero-stats{
+  display:flex;margin-top:52px;
+  padding-top:24px;border-top:1px solid var(--bd);
+}
+.h-stat{flex:1;padding-right:20px}
+.h-stat+.h-stat{padding-left:20px;border-left:1px solid var(--bd)}
+.h-stat-v{
+  font-family:var(--disp);font-weight:800;
+  font-size:26px;color:var(--ac);
+}
+.h-stat-l{
+  font-family:var(--mono);font-size:8px;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--tx2);margin-top:2px;
+}
+
+/* Hero visual */
+.hero-vis{
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.px-wrap{
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+/* Concentric pulsing rings */
+.ring{
+  position:absolute;border:1px solid rgba(0,170,255,.07);
+  border-radius:0;
+}
+.ring-1{width:258px;height:258px;animation:ring-pulse 3.2s ease-in-out infinite}
+.ring-2{width:320px;height:320px;animation:ring-pulse 3.2s ease-in-out .7s infinite}
+.ring-3{width:384px;height:384px;animation:ring-pulse 3.2s ease-in-out 1.4s infinite}
+@keyframes ring-pulse{
+  0%,100%{transform:scale(1);opacity:.8}
+  50%{transform:scale(1.04);opacity:.3}
+}
+.px-logo-big{
+  animation:glow-b 2.8s ease-in-out infinite;
+  position:relative;z-index:2;
+}
+@keyframes glow-b{
+  0%,100%{filter:drop-shadow(0 0 18px var(--ac-glow)) drop-shadow(0 0 5px rgba(0,170,255,.7))}
+  50%{filter:drop-shadow(0 0 34px rgba(0,170,255,.55)) drop-shadow(0 0 10px rgba(0,170,255,.9))}
+}
+/* QR-style corner brackets */
+.qb{position:absolute;width:24px;height:24px}
+.qb svg rect{fill:var(--ac)}
+.qb.tl{top:-8px;left:-8px}
+.qb.tr{top:-8px;right:-8px;transform:scaleX(-1)}
+.qb.bl{bottom:-8px;left:-8px;transform:scaleY(-1)}
+.qb.br{bottom:-8px;right:-8px;transform:scale(-1)}
+
+/* ═══════════════════════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════════════════════ */
+.divider{
+  border:none;border-top:1px solid var(--bd);
+  position:relative;
+}
+.divider::after{
+  content:'';position:absolute;
+  top:-1px;left:50%;transform:translateX(-50%);
+  width:80px;height:1px;background:var(--ac);opacity:.4;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SERVICES
+═══════════════════════════════════════════════════════ */
+.services{padding:96px 0}
+.services-hd{
+  display:flex;justify-content:space-between;
+  align-items:flex-end;gap:40px;margin-bottom:48px;
+  flex-wrap:wrap;
+}
+.srv-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+}
+.srv-card{
+  background:var(--sf);border:1px solid var(--bd);
+  padding:36px;position:relative;overflow:hidden;
+  transition:border-color .28s,background .28s;
+}
+.srv-card::before{
+  content:'';position:absolute;
+  top:0;left:0;width:3px;height:0;
+  background:var(--ac);transition:height .3s;
+}
+.srv-card:hover{
+  border-color:rgba(0,170,255,.2);background:var(--sf2);
+}
+.srv-card:hover::before{height:100%}
+.srv-n{
+  position:absolute;top:34px;right:34px;
+  font-family:var(--mono);font-size:9px;
+  color:var(--tx3);letter-spacing:2px;
+}
+.srv-icon{
+  width:44px;height:44px;
+  border:1px solid var(--bd2);
+  display:flex;align-items:center;justify-content:center;
+  background:var(--ac-low);margin-bottom:18px;
+}
+.srv-name{
+  font-family:var(--disp);font-weight:700;
+  font-size:19px;color:#fff;margin-bottom:10px;
+  text-transform:uppercase;letter-spacing:.5px;
+}
+.srv-desc{
+  font-size:15px;color:var(--tx2);
+  font-weight:300;line-height:1.72;margin-bottom:20px;
+}
+.srv-tags{display:flex;flex-wrap:wrap;gap:6px}
+.srv-tags li{
+  font-family:var(--mono);font-size:8px;
+  letter-spacing:1px;text-transform:uppercase;
+  color:var(--ac);border:1px solid rgba(0,170,255,.18);
+  padding:3px 8px;background:var(--ac-low);
+}
+
+/* ═══════════════════════════════════════════════════════
+   APPROACH
+═══════════════════════════════════════════════════════ */
+.approach{padding:96px 0;border-top:1px solid var(--bd)}
+.appr-hd{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:start;margin-bottom:52px;
+}
+.pillar-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px}
+.pillar{
+  background:var(--sf);border:1px solid var(--bd);
+  padding:30px;transition:border-color .25s;
+}
+.pillar:hover{border-color:rgba(0,170,255,.18)}
+.pillar-n{
+  font-family:var(--mono);font-size:9px;
+  color:var(--ac);letter-spacing:2px;
+  display:block;margin-bottom:18px;
+}
+.pillar-h{
+  font-family:var(--disp);font-weight:700;
+  font-size:17px;color:#fff;margin-bottom:10px;
+  text-transform:uppercase;letter-spacing:.5px;
+}
+.pillar-p{
+  font-size:14px;color:var(--tx2);
+  font-weight:300;line-height:1.72;
+}
+
+/* Tech ticker */
+.ticker{
+  margin-top:52px;padding:18px 0;
+  border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);
+  overflow:hidden;position:relative;
+}
+.ticker::before,.ticker::after{
+  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;
+}
+.ticker::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.ticker::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.ticker-t{
+  display:flex;animation:ticker 28s linear infinite;
+  width:max-content;
+}
+.ticker-t:hover{animation-play-state:paused}
+.t-item{
+  font-family:var(--mono);font-size:9px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--tx2);
+  padding:0 26px;border-right:1px solid var(--bd);
+  white-space:nowrap;
+}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══════════════════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════════════════ */
+.contact{padding:96px 0;border-top:1px solid var(--bd)}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+}
+.c-detail{margin-top:32px}
+.c-detail-l{
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--tx2);margin-bottom:5px;
+}
+.c-detail-v{
+  font-family:var(--disp);font-weight:700;
+  font-size:17px;color:var(--ac);
+}
+.c-detail-v.plain{color:var(--tx2);font-family:var(--cond);font-weight:300;font-size:15px}
+
+.cform{display:flex;flex-direction:column;gap:14px}
+.f-field{display:flex;flex-direction:column;gap:6px}
+.f-label{
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:2px;text-transform:uppercase;color:var(--tx2);
+}
+.f-input{
+  background:var(--sf);border:1px solid var(--bd);
+  color:var(--tx);padding:12px 15px;
+  font-family:var(--cond);font-size:15px;
+  outline:none;transition:border-color .2s;
+  -webkit-appearance:none;appearance:none;
+  border-radius:0;
+}
+.f-input:focus{border-color:rgba(0,170,255,.38)}
+.f-input::placeholder{color:var(--tx3)}
+textarea.f-input{resize:vertical;min-height:110px}
+.f-btn{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:2px;text-transform:uppercase;
+  background:var(--ac);color:var(--bg);border:none;
+  padding:13px 26px;font-weight:700;
+  align-self:flex-start;transition:filter .18s;
+}
+.f-btn:hover{filter:brightness(1.14)}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════ */
+footer{
+  padding:36px 0;
+  border-top:1px solid var(--bd);background:var(--sf);
+}
+.ft-in{
+  display:flex;align-items:center;
+  justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+.ft-logo{display:flex;align-items:center;gap:9px}
+.ft-brand{
+  font-family:var(--disp);font-weight:800;
+  font-size:14px;color:var(--tx2);
+}
+.ft-copy{
+  font-family:var(--mono);font-size:8px;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--tx3);
+}
+.ft-links{display:flex;gap:18px}
+.ft-links a{
+  font-family:var(--mono);font-size:8px;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--tx3);transition:color .2s;
+}
+.ft-links a:hover{color:var(--ac)}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════ */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .hero-vis{order:-1}
+  .ring-1{width:200px;height:200px}
+  .ring-2{width:248px;height:248px}
+  .ring-3{display:none}
+  .srv-grid{grid-template-columns:1fr}
+  .appr-hd{grid-template-columns:1fr;gap:20px}
+  .pillar-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:48px}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .wrap{padding:0 20px}
+  .hero h1{letter-spacing:-2px}
+  .hero-stats{flex-direction:column;gap:16px}
+  .h-stat+.h-stat{border-left:none;border-top:1px solid var(--bd);padding-left:0;padding-top:16px}
+  .ft-in{flex-direction:column;align-items:flex-start}
+  .services-hd{flex-direction:column;align-items:flex-start}
+}
+
+/* ═══════════════════════════════════════════════════════
+   SCROLL FADE-IN
+═══════════════════════════════════════════════════════ */
+.fade-in{
+  opacity:0;transform:translateY(20px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     NAV
+════════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#inicio" class="nav-logo">
+      <!-- pixel 8×8 logo — green, viewBox clips to icon area -->
+      <svg class="nav-logo-svg" viewBox="9 20 43 43" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="21" width="5" height="5" fill="#00aaff"/>
+        <rect x="16" y="21" width="5" height="5" fill="#00aaff"/>
+        <rect x="22" y="21" width="5" height="5" fill="#00aaff"/>
+        <rect x="40" y="21" width="5" height="5" fill="#00aaff"/>
+        <rect x="46" y="21" width="5" height="5" fill="#00aaff"/>
+        <rect x="52" y="21" width="5" height="5" fill="#00aaff"/>
+        <rect x="10" y="27" width="5" height="5" fill="#00aaff"/>
+        <rect x="16" y="27" width="5" height="5" fill="#00aaff" opacity=".15"/>
+        <rect x="22" y="27" width="5" height="5" fill="#00aaff"/>
+        <rect x="40" y="27" width="5" height="5" fill="#00aaff"/>
+        <rect x="46" y="27" width="5" height="5" fill="#00aaff" opacity=".15"/>
+        <rect x="52" y="27" width="5" height="5" fill="#00aaff"/>
+        <rect x="10" y="33" width="5" height="5" fill="#00aaff"/>
+        <rect x="16" y="33" width="5" height="5" fill="#00aaff"/>
+        <rect x="22" y="33" width="5" height="5" fill="#00aaff"/>
+        <rect x="40" y="33" width="5" height="5" fill="#00aaff"/>
+        <rect x="46" y="33" width="5" height="5" fill="#00aaff"/>
+        <rect x="52" y="33" width="5" height="5" fill="#00aaff"/>
+        <rect x="28" y="39" width="5" height="5" fill="#00aaff"/>
+        <rect x="34" y="45" width="5" height="5" fill="#00aaff"/>
+        <rect x="10" y="51" width="5" height="5" fill="#00aaff"/>
+        <rect x="16" y="51" width="5" height="5" fill="#00aaff"/>
+        <rect x="22" y="51" width="5" height="5" fill="#00aaff"/>
+        <rect x="40" y="51" width="5" height="5" fill="#00aaff"/>
+        <rect x="10" y="57" width="5" height="5" fill="#00aaff"/>
+        <rect x="16" y="57" width="5" height="5" fill="#00aaff" opacity=".15"/>
+        <rect x="22" y="57" width="5" height="5" fill="#00aaff"/>
+        <rect x="46" y="57" width="5" height="5" fill="#00aaff"/>
+        <rect x="10" y="63" width="5" height="5" fill="#00aaff"/>
+        <rect x="16" y="63" width="5" height="5" fill="#00aaff"/>
+        <rect x="22" y="63" width="5" height="5" fill="#00aaff"/>
+        <rect x="52" y="63" width="5" height="5" fill="#00aaff"/>
+      </svg>
+      <span class="nav-brand">DATAPLEX</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#enfoque">Enfoque</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <a href="#contacto" class="nav-cta">Hablemos →</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section id="inicio" class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <!-- LEFT -->
+      <div>
+        <div class="hero-badge">
+          <div class="tag"><span class="blink"></span>Analítica · IA · Estrategia</div>
+        </div>
+        <h1>DATA<br>PLEX</h1>
+        <p class="hero-strap">Intelligence beyond data</p>
+        <p class="hero-desc">Transformamos datos complejos en decisiones que impulsan el negocio. Consultoría y desarrollo especializado en analítica avanzada e inteligencia artificial.</p>
+        <div class="hero-ctas">
+          <a href="#servicios" class="btn btn-green">Ver servicios</a>
+          <a href="#contacto" class="btn btn-outline">Hablemos →</a>
+        </div>
+        <div class="hero-stats">
+          <div class="h-stat">
+            <div class="h-stat-v">100%</div>
+            <div class="h-stat-l">Open source</div>
+          </div>
+          <div class="h-stat">
+            <div class="h-stat-v">Cloud</div>
+            <div class="h-stat-l">Native first</div>
+          </div>
+          <div class="h-stat">
+            <div class="h-stat-v">Data</div>
+            <div class="h-stat-l">Led decisions</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: pixel logo visual -->
+      <div class="hero-vis">
+        <div class="px-wrap">
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
+          <!-- corner brackets -->
+          <div class="qb tl"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="21" width="6" height="6" fill="#00aaff"/>
+        <rect x="17" y="21" width="6" height="6" fill="#00aaff"/>
+        <rect x="24" y="21" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="31" y="21" width="6" height="6" fill="#00aaff"/>
+        <rect x="38" y="21" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="45" y="21" width="6" height="6" fill="#00aaff"/>
+        <rect x="10" y="28" width="6" height="6" fill="#00aaff"/>
+        <rect x="17" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="24" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="31" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="38" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="45" y="28" width="6" height="6" fill="#00aaff"/>
+        <rect x="10" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="17" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="24" y="35" width="6" height="6" fill="#00aaff"/>
+        <rect x="31" y="35" width="6" height="6" fill="#00aaff"/>
+        <rect x="38" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="45" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="10" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="17" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="24" y="42" width="6" height="6" fill="#00aaff"/>
+        <rect x="31" y="42" width="6" height="6" fill="#00aaff"/>
+        <rect x="38" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="45" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="10" y="49" width="6" height="6" fill="#00aaff"/>
+        <rect x="17" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="24" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="31" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="38" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="45" y="49" width="6" height="6" fill="#00aaff"/>
+        <rect x="10" y="56" width="6" height="6" fill="#00aaff"/>
+        <rect x="17" y="56" width="6" height="6" fill="#00aaff"/>
+        <rect x="24" y="56" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="31" y="56" width="6" height="6" fill="#00aaff"/>
+        <rect x="38" y="56" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="45" y="56" width="6" height="6" fill="#00aaff"/>
+      </svg></div>
+          <div class="qb tr"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="24" height="4" fill="#00aaff"/><rect x="0" y="0" width="4" height="24" fill="#00aaff"/></svg></div>
+          <div class="qb bl"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="24" height="4" fill="#00aaff"/><rect x="0" y="0" width="4" height="24" fill="#00aaff"/></svg></div>
+          <div class="qb br"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="24" height="4" fill="#00aaff"/><rect x="0" y="0" width="4" height="24" fill="#00aaff"/></svg></div>
+          <!-- BIG pixel logo -->
+          <svg class="px-logo-big" viewBox="9 20 43 43" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="21" width="5" height="5" fill="#00aaff"/>
+            <rect x="16" y="21" width="5" height="5" fill="#00aaff"/>
+            <rect x="22" y="21" width="5" height="5" fill="#00aaff"/>
+            <rect x="40" y="21" width="5" height="5" fill="#00aaff"/>
+            <rect x="46" y="21" width="5" height="5" fill="#00aaff"/>
+            <rect x="52" y="21" width="5" height="5" fill="#00aaff"/>
+            <rect x="10" y="27" width="5" height="5" fill="#00aaff"/>
+            <rect x="16" y="27" width="5" height="5" fill="#00aaff" opacity=".18"/>
+            <rect x="22" y="27" width="5" height="5" fill="#00aaff"/>
+            <rect x="40" y="27" width="5" height="5" fill="#00aaff"/>
+            <rect x="46" y="27" width="5" height="5" fill="#00aaff" opacity=".18"/>
+            <rect x="52" y="27" width="5" height="5" fill="#00aaff"/>
+            <rect x="10" y="33" width="5" height="5" fill="#00aaff"/>
+            <rect x="16" y="33" width="5" height="5" fill="#00aaff"/>
+            <rect x="22" y="33" width="5" height="5" fill="#00aaff"/>
+            <rect x="40" y="33" width="5" height="5" fill="#00aaff"/>
+            <rect x="46" y="33" width="5" height="5" fill="#00aaff"/>
+            <rect x="52" y="33" width="5" height="5" fill="#00aaff"/>
+            <rect x="28" y="39" width="5" height="5" fill="#00aaff"/>
+            <rect x="34" y="45" width="5" height="5" fill="#00aaff"/>
+            <rect x="10" y="51" width="5" height="5" fill="#00aaff"/>
+            <rect x="16" y="51" width="5" height="5" fill="#00aaff"/>
+            <rect x="22" y="51" width="5" height="5" fill="#00aaff"/>
+            <rect x="40" y="51" width="5" height="5" fill="#00aaff"/>
+            <rect x="10" y="57" width="5" height="5" fill="#00aaff"/>
+            <rect x="16" y="57" width="5" height="5" fill="#00aaff" opacity=".18"/>
+            <rect x="22" y="57" width="5" height="5" fill="#00aaff"/>
+            <rect x="46" y="57" width="5" height="5" fill="#00aaff"/>
+            <rect x="10" y="63" width="5" height="5" fill="#00aaff"/>
+            <rect x="16" y="63" width="5" height="5" fill="#00aaff"/>
+            <rect x="22" y="63" width="5" height="5" fill="#00aaff"/>
+            <rect x="52" y="63" width="5" height="5" fill="#00aaff"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SERVICES
+════════════════════════════════════════════ -->
+<section id="servicios" class="services" style="border-top:1px solid var(--bd)">
+  <div class="wrap">
+    <div class="services-hd fade-in">
+      <div>
+        <div class="sec-label">// Servicios</div>
+        <h2 class="sec-h">Qué hacemos</h2>
+      </div>
+      <p class="sec-p" style="margin-top:0">Acompañamos a las organizaciones en cada etapa de su transformación basada en datos, desde la estrategia hasta la operación en producción.</p>
+    </div>
+
+    <div class="srv-grid">
+      <!-- 01 -->
+      <div class="srv-card fade-in">
+        <span class="srv-n">01</span>
+        <div class="srv-icon">
+          <svg width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="21" width="6" height="6" fill="#00aaff"/>
+        <rect x="17" y="21" width="6" height="6" fill="#00aaff"/>
+        <rect x="24" y="21" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="31" y="21" width="6" height="6" fill="#00aaff"/>
+        <rect x="38" y="21" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="45" y="21" width="6" height="6" fill="#00aaff"/>
+        <rect x="10" y="28" width="6" height="6" fill="#00aaff"/>
+        <rect x="17" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="24" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="31" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="38" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="45" y="28" width="6" height="6" fill="#00aaff"/>
+        <rect x="10" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="17" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="24" y="35" width="6" height="6" fill="#00aaff"/>
+        <rect x="31" y="35" width="6" height="6" fill="#00aaff"/>
+        <rect x="38" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="45" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="10" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="17" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="24" y="42" width="6" height="6" fill="#00aaff"/>
+        <rect x="31" y="42" width="6" height="6" fill="#00aaff"/>
+        <rect x="38" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="45" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="10" y="49" width="6" height="6" fill="#00aaff"/>
+        <rect x="17" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="24" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="31" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="38" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="45" y="49" width="6" height="6" fill="#00aaff"/>
+        <rect x="10" y="56" width="6" height="6" fill="#00aaff"/>
+        <rect x="17" y="56" width="6" height="6" fill="#00aaff"/>
+        <rect x="24" y="56" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="31" y="56" width="6" height="6" fill="#00aaff"/>
+        <rect x="38" y="56" width="6" height="6" fill="#00aaff" opacity=".07"/>
+        <rect x="45" y="56" width="6" height="6" fill="#00aaff"/>
+      </svg>
+        </div>
+        <h3 class="srv-name">Analítica Avanzada</h3>
+        <p class="srv-desc">Dashboards ejecutivos, modelos predictivos y análisis exploratorio para convertir tus datos en ventaja competitiva real y cuantificable.</p>
+        <ul class="srv-tags">
+          <li>BI & Dashboards</li><li>Modelos predictivos</li>
+          <li>Real-time analytics</li><li>Self-service BI</li>
+        </ul>
+      </div>
+      <!-- 02 -->
+      <div class="srv-card fade-in">
+        <span class="srv-n">02</span>
+        <div class="srv-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="2.5" fill="#00aaff"/>
+            <circle cx="3"  cy="3"  r="1.8" fill="#00aaff" opacity=".6"/>
+            <circle cx="19" cy="3"  r="1.8" fill="#00aaff" opacity=".6"/>
+            <circle cx="3"  cy="19" r="1.8" fill="#00aaff" opacity=".6"/>
+            <circle cx="19" cy="19" r="1.8" fill="#00aaff" opacity=".6"/>
+            <circle cx="11" cy="3"  r="1.4" fill="#00aaff" opacity=".4"/>
+            <circle cx="3"  cy="11" r="1.4" fill="#00aaff" opacity=".4"/>
+            <circle cx="19" cy="11" r="1.4" fill="#00aaff" opacity=".4"/>
+            <circle cx="11" cy="19" r="1.4" fill="#00aaff" opacity=".4"/>
+            <line x1="11" y1="11" x2="3"  y2="3"  stroke="#00aaff" stroke-width=".7" opacity=".35"/>
+            <line x1="11" y1="11" x2="19" y2="3"  stroke="#00aaff" stroke-width=".7" opacity=".35"/>
+            <line x1="11" y1="11" x2="3"  y2="19" stroke="#00aaff" stroke-width=".7" opacity=".35"/>
+            <line x1="11" y1="11" x2="19" y2="19" stroke="#00aaff" stroke-width=".7" opacity=".35"/>
+            <line x1="11" y1="11" x2="11" y2="3"  stroke="#00aaff" stroke-width=".7" opacity=".25"/>
+            <line x1="11" y1="11" x2="3"  y2="11" stroke="#00aaff" stroke-width=".7" opacity=".25"/>
+            <line x1="11" y1="11" x2="19" y2="11" stroke="#00aaff" stroke-width=".7" opacity=".25"/>
+            <line x1="11" y1="11" x2="11" y2="19" stroke="#00aaff" stroke-width=".7" opacity=".25"/>
+          </svg>
+        </div>
+        <h3 class="srv-name">Inteligencia Artificial</h3>
+        <p class="srv-desc">Modelos de machine learning y deep learning a medida: clasificación, predicción, NLP, LLMs y sistemas de recomendación integrados en el negocio.</p>
+        <ul class="srv-tags">
+          <li>ML / Deep Learning</li><li>NLP & LLMs</li>
+          <li>Computer Vision</li><li>MLOps</li>
+        </ul>
+      </div>
+      <!-- 03 -->
+      <div class="srv-card fade-in">
+        <span class="srv-n">03</span>
+        <div class="srv-icon">
+          <svg width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="2"  width="7" height="4" fill="none" stroke="#00aaff" stroke-width="1"/>
+            <rect x="15" y="2" width="7" height="4" fill="none" stroke="#00aaff" stroke-width="1"/>
+            <rect x="7"  y="12" width="8" height="4" fill="none" stroke="#00aaff" stroke-width="1"/>
+            <line x1="7"  y1="4"   x2="15" y2="4"   stroke="#00aaff" stroke-width=".8" opacity=".45"/>
+            <line x1="18.5" y1="6" x2="18.5" y2="9" stroke="#00aaff" stroke-width=".8" opacity=".45"/>
+            <line x1="3.5"  y1="6" x2="3.5"  y2="9" stroke="#00aaff" stroke-width=".8" opacity=".45"/>
+            <line x1="3.5"  y1="9" x2="11"   y2="9" stroke="#00aaff" stroke-width=".8" opacity=".45"/>
+            <line x1="18.5" y1="9" x2="11"   y2="9" stroke="#00aaff" stroke-width=".8" opacity=".45"/>
+            <line x1="11"   y1="9" x2="11"   y2="12" stroke="#00aaff" stroke-width=".8" opacity=".45"/>
+          </svg>
+        </div>
+        <h3 class="srv-name">Ingeniería de Datos</h3>
+        <p class="srv-desc">Pipelines robustos, data lakes, warehouses y arquitecturas cloud escalables que garantizan la calidad, disponibilidad y trazabilidad de tus datos.</p>
+        <ul class="srv-tags">
+          <li>Pipelines & ETL/ELT</li><li>Data Lake / Warehouse</li>
+          <li>Cloud Architecture</li><li>Data Quality</li>
+        </ul>
+      </div>
+      <!-- 04 -->
+      <div class="srv-card fade-in">
+        <span class="srv-n">04</span>
+        <div class="srv-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="10" fill="none" stroke="#00aaff" stroke-width=".8" opacity=".3"/>
+            <circle cx="11" cy="11" r="6.5" fill="none" stroke="#00aaff" stroke-width=".8" opacity=".5"/>
+            <circle cx="11" cy="11" r="3"   fill="none" stroke="#00aaff" stroke-width=".8" opacity=".8"/>
+            <circle cx="11" cy="11" r="1.2" fill="#00aaff"/>
+            <line x1="11" y1="1"  x2="11" y2="4"  stroke="#00aaff" stroke-width=".8" opacity=".4"/>
+            <line x1="11" y1="18" x2="11" y2="21" stroke="#00aaff" stroke-width=".8" opacity=".4"/>
+          </svg>
+        </div>
+        <h3 class="srv-name">Estrategia de Datos</h3>
+        <p class="srv-desc">Hoja de ruta de datos para tu organización: governance, selección tecnológica, data culture y gestión del cambio para maximizar el retorno.</p>
+        <ul class="srv-tags">
+          <li>Data Governance</li><li>Roadmapping</li>
+          <li>Tech Selection</li><li>Data Culture</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     APPROACH
+════════════════════════════════════════════ -->
+<section id="enfoque" class="approach">
+  <div class="wrap">
+    <div class="appr-hd fade-in">
+      <div>
+        <div class="sec-label">// Nuestro enfoque</div>
+        <h2 class="sec-h">Tres principios<br>que guían cada proyecto</h2>
+      </div>
+      <p class="sec-p" style="max-width:100%;margin-top:0">No entregamos informes: entregamos soluciones en producción. Somos un equipo técnico que entiende el negocio y trabaja con objetivos de negocio medibles desde el primer día.</p>
+    </div>
+
+    <div class="pillar-grid">
+      <div class="pillar fade-in">
+        <span class="pillar-n">01 ·</span>
+        <h3 class="pillar-h">Calidad de datos primero</h3>
+        <p class="pillar-p">La calidad del modelo depende de la calidad del dato. Auditamos, limpiamos y estructuramos antes de analizar. Sin atajos.</p>
+      </div>
+      <div class="pillar fade-in">
+        <span class="pillar-n">02 ·</span>
+        <h3 class="pillar-h">Impacto medible</h3>
+        <p class="pillar-p">Cada proyecto tiene objetivos de negocio y métricas de éxito definidas desde el inicio. Valor cuantificable, no presentaciones.</p>
+      </div>
+      <div class="pillar fade-in">
+        <span class="pillar-n">03 ·</span>
+        <h3 class="pillar-h">Tecnología abierta</h3>
+        <p class="pillar-p">Stack open source y cloud líder. Sin vendor lock-in: tú controlas tu arquitectura y tus datos, siempre.</p>
+      </div>
+    </div>
+
+    <!-- Technology ticker -->
+    <div class="ticker fade-in">
+      <div class="ticker-t" aria-hidden="true">
+        <span class="t-item">Python</span><span class="t-item">Apache Spark</span>
+        <span class="t-item">dbt</span><span class="t-item">Airflow</span>
+        <span class="t-item">Kafka</span><span class="t-item">PostgreSQL</span>
+        <span class="t-item">Snowflake</span><span class="t-item">BigQuery</span>
+        <span class="t-item">AWS</span><span class="t-item">Azure</span>
+        <span class="t-item">GCP</span><span class="t-item">Kubernetes</span>
+        <span class="t-item">MLflow</span><span class="t-item">Hugging Face</span>
+        <span class="t-item">LangChain</span><span class="t-item">Power BI</span>
+        <span class="t-item">Tableau</span><span class="t-item">Metabase</span>
+        <!-- duplicate for seamless loop -->
+        <span class="t-item">Python</span><span class="t-item">Apache Spark</span>
+        <span class="t-item">dbt</span><span class="t-item">Airflow</span>
+        <span class="t-item">Kafka</span><span class="t-item">PostgreSQL</span>
+        <span class="t-item">Snowflake</span><span class="t-item">BigQuery</span>
+        <span class="t-item">AWS</span><span class="t-item">Azure</span>
+        <span class="t-item">GCP</span><span class="t-item">Kubernetes</span>
+        <span class="t-item">MLflow</span><span class="t-item">Hugging Face</span>
+        <span class="t-item">LangChain</span><span class="t-item">Power BI</span>
+        <span class="t-item">Tableau</span><span class="t-item">Metabase</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════════ -->
+<section id="contacto" class="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="fade-in">
+        <div class="sec-label">// Contacto</div>
+        <h2 class="sec-h">Hablemos</h2>
+        <p class="sec-p" style="max-width:100%">¿Tienes un reto de datos o IA? Cuéntanos qué necesitas y te respondemos en menos de 24 horas.</p>
+        <div class="c-detail">
+          <div class="c-detail-l">Email</div>
+          <div class="c-detail-v"><a href="mailto:hola@dataplex.es">hola@dataplex.es</a></div>
+        </div>
+        <div class="c-detail">
+          <div class="c-detail-l">LinkedIn</div>
+          <div class="c-detail-v" style="font-size:14px"><a href="https://linkedin.com/company/dataplex-es" target="_blank" rel="noopener">linkedin.com/company/dataplex-es</a></div>
+        </div>
+        <div class="c-detail">
+          <div class="c-detail-l">Ubicación</div>
+          <div class="c-detail-v plain">España · Remoto & Presencial</div>
+        </div>
+      </div>
+
+      <!-- Form — connect to Formspree: replace XXXXXXXX with your form ID -->
+      <!-- Sign up free at formspree.io, create a form, copy the endpoint -->
+      <form class="cform fade-in" action="https://formspree.io/f/XXXXXXXX" method="POST">
+        <div class="f-field">
+          <label class="f-label" for="fn">Nombre</label>
+          <input class="f-input" type="text" id="fn" name="name" placeholder="Tu nombre" required>
+        </div>
+        <div class="f-field">
+          <label class="f-label" for="fe">Email</label>
+          <input class="f-input" type="email" id="fe" name="email" placeholder="tu@empresa.com" required>
+        </div>
+        <div class="f-field">
+          <label class="f-label" for="fm">Mensaje</label>
+          <textarea class="f-input" id="fm" name="message" placeholder="Cuéntanos tu reto de datos..." required></textarea>
+        </div>
+        <button type="submit" class="f-btn">Enviar →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap ft-in">
+    <div class="ft-logo">
+      <svg viewBox="9 20 43 43" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="21" width="6" height="6" fill="#00aaff"/>
+        <rect x="17" y="21" width="6" height="6" fill="#00aaff"/>
+        <rect x="24" y="21" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="31" y="21" width="6" height="6" fill="#00aaff"/>
+        <rect x="38" y="21" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="45" y="21" width="6" height="6" fill="#00aaff"/>
+        <rect x="10" y="28" width="6" height="6" fill="#00aaff"/>
+        <rect x="17" y="28" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="24" y="28" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="31" y="28" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="38" y="28" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="45" y="28" width="6" height="6" fill="#00aaff"/>
+        <rect x="10" y="35" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="17" y="35" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="24" y="35" width="6" height="6" fill="#00aaff"/>
+        <rect x="31" y="35" width="6" height="6" fill="#00aaff"/>
+        <rect x="38" y="35" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="45" y="35" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="10" y="42" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="17" y="42" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="24" y="42" width="6" height="6" fill="#00aaff"/>
+        <rect x="31" y="42" width="6" height="6" fill="#00aaff"/>
+        <rect x="38" y="42" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="45" y="42" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="10" y="49" width="6" height="6" fill="#00aaff"/>
+        <rect x="17" y="49" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="24" y="49" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="31" y="49" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="38" y="49" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="45" y="49" width="6" height="6" fill="#00aaff"/>
+        <rect x="10" y="56" width="6" height="6" fill="#00aaff"/>
+        <rect x="17" y="56" width="6" height="6" fill="#00aaff"/>
+        <rect x="24" y="56" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="31" y="56" width="6" height="6" fill="#00aaff"/>
+        <rect x="38" y="56" width="6" height="6" fill="#00aaff" opacity=".04"/>
+        <rect x="45" y="56" width="6" height="6" fill="#00aaff"/>
+      </svg>
+      <span class="ft-brand">DATAPLEX</span>
+    </div>
+    <p class="ft-copy">© 2026 Dataplex. Todos los derechos reservados.</p>
+    <nav class="ft-links" aria-label="Footer">
+      <a href="mailto:hola@dataplex.es">hola@dataplex.es</a>
+      <a href="https://linkedin.com/company/dataplex-es" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// ── Scroll-based nav active link ────────────────────────
+const sections = document.querySelectorAll('section[id]');
+const links    = document.querySelectorAll('.nav-links a');
+const nav      = document.getElementById('nav');
+
+const ioNav = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+      });
+    }
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+
+sections.forEach(s => ioNav.observe(s));
+
+// Nav border accent on scroll
+window.addEventListener('scroll', () => {
+  nav.style.borderBottomColor = window.scrollY > 20
+    ? 'rgba(0,170,255,.14)' : 'var(--bd)';
+}, { passive: true });
+
+// ── Fade-in on scroll ────────────────────────────────────
+const fades = document.querySelectorAll('.fade-in');
+const ioFade = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); ioFade.unobserve(e.target); }
+  });
+}, { threshold: .12 });
+fades.forEach(el => ioFade.observe(el));
+</script>
+
+</body>
+</html>
