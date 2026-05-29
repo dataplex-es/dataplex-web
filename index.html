@@ -3,41 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dataplex — Consultoría y desarrollo de analítica avanzada de datos e inteligencia artificial. Intelligence beyond data.">
-  <meta property="og:title" content="Dataplex — Intelligence Beyond Data">
-  <meta property="og:description" content="Transformamos datos complejos en decisiones que impulsan el negocio.">
+  <meta name="description" content="Dataplex — Consultoría de IA para la dirección y gestión de la PYME. Decisiones más inteligentes. Procesos más eficientes.">
+  <meta property="og:title" content="Dataplex — Decisiones más inteligentes. Procesos más eficientes.">
+  <meta property="og:description" content="Consultoría de IA para la PYME. Llevamos a tu empresa las capacidades que antes solo tenían las grandes.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dataplex.es">
-  <title>Dataplex — Intelligence Beyond Data</title>
+  <title>Dataplex — Decisiones más inteligentes. Procesos más eficientes.</title>
 
-  <!-- SVG favicon: pixel logo -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='9 20 43 43'%3E%3Crect width='100%25' height='100%25' fill='%230a0a0f'/%3E%3Crect x='10' y='21' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='17' y='21' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='31' y='21' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='45' y='21' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='10' y='28' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='45' y='28' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='24' y='35' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='31' y='35' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='24' y='42' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='31' y='42' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='10' y='49' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='45' y='49' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='10' y='56' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='17' y='56' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='31' y='56' width='6' height='6' fill='%2300aaff'/%3E%3Crect x='45' y='56' width='6' height='6' fill='%2300aaff'/%3E%3C/svg%3E">
+  <!-- SVG favicon: concentric dots bloom -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='9' fill='%2300aaff'/%3E%3Ccircle cx='32' cy='11' r='5.5' fill='%2300aaff' opacity='.55'/%3E%3Ccircle cx='32' cy='53' r='5.5' fill='%2300aaff' opacity='.55'/%3E%3Ccircle cx='11' cy='32' r='5.5' fill='%2300aaff' opacity='.55'/%3E%3Ccircle cx='53' cy='32' r='5.5' fill='%2300aaff' opacity='.55'/%3E%3Ccircle cx='13' cy='13' r='3.5' fill='%2300aaff' opacity='.3'/%3E%3Ccircle cx='51' cy='13' r='3.5' fill='%2300aaff' opacity='.3'/%3E%3Ccircle cx='13' cy='51' r='3.5' fill='%2300aaff' opacity='.3'/%3E%3Ccircle cx='51' cy='51' r='3.5' fill='%2300aaff' opacity='.3'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 /* ═══════════════════════════════════════════════════════
-   TOKENS
+   TOKENS — light editorial
 ═══════════════════════════════════════════════════════ */
 :root {
-  --bg:       #0a0a0f;
-  --sf:       #0d0d15;
-  --sf2:      #111118;
-  --bd:       #1a1a2a;
-  --bd2:      #222235;
-  --ac:       #00aaff;
-  --ac-low:   rgba(0,170,255,.06);
-  --ac-mid:   rgba(0,170,255,.14);
-  --ac-glow:  rgba(0,170,255,.28);
-  --tx:       #d6daea;
-  --tx2:      #72728a;
-  --tx3:      #2e2e48;
-  --mono:     'Space Mono', monospace;
-  --disp:     'Syne', sans-serif;
-  --cond:     'Barlow Condensed', sans-serif;
-  --nav-h:    66px;
-  --max-w:    1100px;
+  --bg:        #f6f4ef;   /* warm cream */
+  --surface:   #ffffff;   /* cards */
+  --surface-2: #fbfaf7;
+  --line:      #e4e0d6;   /* subtle borders */
+  --line-2:    #d8d3c6;
+  --ac:        #00aaff;   /* Dataplex blue — accent only */
+  --ac-soft:   rgba(0,170,255,.10);
+  --ac-line:   rgba(0,170,255,.30);
+  --tx:        #17171f;   /* near-black */
+  --tx-2:      #56565f;   /* muted body */
+  --tx-3:      #8a8a93;   /* faint labels */
+  --serif:     'Fraunces', Georgia, serif;
+  --sans:      'Inter', system-ui, sans-serif;
+  --nav-h:     72px;
+  --max-w:     1120px;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -48,10 +47,10 @@ html{scroll-behavior:smooth}
 body{
   background:var(--bg);
   color:var(--tx);
-  font-family:var(--cond);
-  font-weight:400;
+  font-family:var(--sans);
   font-size:17px;
-  line-height:1.65;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none}
@@ -59,381 +58,180 @@ ul{list-style:none}
 button{cursor:pointer;font-family:inherit}
 
 /* ═══════════════════════════════════════════════════════
-   GRID BACKGROUND
-═══════════════════════════════════════════════════════ */
-body::before{
-  content:'';
-  position:fixed;inset:0;
-  background-image:
-    linear-gradient(var(--ac-low) 1px, transparent 1px),
-    linear-gradient(90deg, var(--ac-low) 1px, transparent 1px);
-  background-size:44px 44px;
-  pointer-events:none;
-  z-index:0;
-}
-nav,main,footer{position:relative;z-index:1}
-
-/* ═══════════════════════════════════════════════════════
    UTILITIES
 ═══════════════════════════════════════════════════════ */
-.wrap{max-width:var(--max-w);margin:0 auto;padding:0 36px}
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 40px}
 
-.tag{
-  display:inline-flex;align-items:center;gap:7px;
-  font-family:var(--mono);font-size:9px;letter-spacing:3px;
-  text-transform:uppercase;color:var(--ac);
-  border:1px solid rgba(0,170,255,.22);padding:5px 13px;
-  background:var(--ac-low);
-}
-.tag .blink{
-  width:5px;height:5px;border-radius:50%;background:var(--ac);
-  animation:blink 1.6s step-end infinite;
-}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
-
-.sec-label{
-  font-family:var(--mono);font-size:9px;letter-spacing:3px;
-  text-transform:uppercase;color:var(--ac);margin-bottom:10px;
+.eyebrow{
+  font-family:var(--sans);font-weight:600;
+  font-size:12px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--ac);margin-bottom:18px;
 }
 .sec-h{
-  font-family:var(--disp);font-weight:800;
-  font-size:clamp(26px,4.5vw,44px);color:#fff;
-  letter-spacing:1px;line-height:1.08;text-transform:uppercase;
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(30px,4vw,46px);color:var(--tx);
+  line-height:1.1;letter-spacing:-.5px;
 }
-.sec-p{
-  color:var(--tx2);font-size:16px;font-weight:300;
-  max-width:540px;line-height:1.75;margin-top:12px;
+.sec-lead{
+  color:var(--tx-2);font-size:clamp(17px,1.6vw,19px);
+  max-width:620px;line-height:1.7;margin-top:18px;
 }
 
 .btn{
-  display:inline-block;
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:2px;text-transform:uppercase;
-  padding:13px 26px;transition:all .18s;
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--sans);font-weight:600;font-size:15px;
+  padding:14px 26px;border-radius:2px;transition:all .2s;
 }
-.btn-green{background:var(--ac);color:var(--bg);font-weight:700}
-.btn-green:hover{filter:brightness(1.14)}
-.btn-outline{color:var(--ac);border:1px solid rgba(0,170,255,.3)}
-.btn-outline:hover{border-color:var(--ac);background:var(--ac-low)}
+.btn-primary{background:var(--ac);color:#fff}
+.btn-primary:hover{background:#0098e0;transform:translateY(-1px)}
+.btn-ghost{color:var(--tx);border:1px solid var(--line-2)}
+.btn-ghost:hover{border-color:var(--tx);background:var(--surface)}
 
 /* ═══════════════════════════════════════════════════════
    NAV
 ═══════════════════════════════════════════════════════ */
 nav{
-  position:fixed;top:0;left:0;right:0;
-  height:var(--nav-h);
-  background:rgba(10,10,15,.88);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--bd);
+  position:fixed;top:0;left:0;right:0;height:var(--nav-h);
+  background:rgba(246,244,239,.82);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid transparent;transition:border-color .25s;
   z-index:100;
 }
-.nav-in{
-  display:flex;align-items:center;
-  justify-content:space-between;height:100%;
-}
-.nav-logo{display:flex;align-items:center;gap:11px;transition:opacity .2s}
-.nav-logo:hover{opacity:.8}
-.nav-logo-svg{display:block;flex-shrink:0}
-.nav-brand{
-  font-family:var(--disp);font-weight:800;font-size:17px;
-  color:#fff;letter-spacing:-.3px;
-}
-.nav-links{display:flex;align-items:stretch;height:100%}
-.nav-links a{
-  display:flex;align-items:center;
-  font-family:var(--mono);font-size:9px;
-  letter-spacing:2px;text-transform:uppercase;
-  color:var(--tx2);padding:0 18px;
-  border-right:1px solid var(--bd);
-  transition:color .2s;
-}
-.nav-links a:first-child{border-left:1px solid var(--bd)}
-.nav-links a:hover,.nav-links a.active{color:var(--ac)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:100%}
+.nav-logo{display:flex;align-items:center;gap:11px}
+.nav-brand{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--tx);letter-spacing:-.3px}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{font-size:15px;font-weight:500;color:var(--tx-2);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--tx)}
 .nav-cta{
-  font-family:var(--mono);font-size:9px;
-  letter-spacing:2px;text-transform:uppercase;
-  color:var(--ac);border:1px solid rgba(0,170,255,.35);
-  padding:9px 18px;margin-left:18px;transition:all .2s;
+  font-size:14px;font-weight:600;color:#fff;background:var(--ac);
+  padding:10px 20px;border-radius:2px;transition:background .2s;
 }
-.nav-cta:hover{background:var(--ac);color:var(--bg)}
+.nav-cta:hover{background:#0098e0}
 
 /* ═══════════════════════════════════════════════════════
    HERO
 ═══════════════════════════════════════════════════════ */
-.hero{
-  min-height:100vh;
-  padding:calc(var(--nav-h) + 72px) 0 80px;
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:64px;align-items:center;
-}
-.hero-badge{margin-bottom:26px}
+.hero{padding:calc(var(--nav-h) + 90px) 0 100px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
 .hero h1{
-  font-family:var(--disp);font-weight:800;
-  font-size:clamp(56px,9vw,100px);
-  color:#fff;letter-spacing:-3px;line-height:.92;
-  margin-bottom:18px;
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(40px,5.6vw,66px);line-height:1.05;
+  letter-spacing:-1.5px;color:var(--tx);margin-bottom:26px;
 }
-.hero-strap{
-  font-family:var(--mono);
-  font-size:clamp(10px,1.3vw,12px);
-  letter-spacing:4px;text-transform:uppercase;
-  color:var(--ac);margin-bottom:26px;
-}
-.hero-desc{
-  font-size:clamp(15px,1.8vw,18px);
-  color:var(--tx2);font-weight:300;
-  max-width:460px;line-height:1.72;margin-bottom:38px;
-}
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-
-.hero-stats{
-  display:flex;margin-top:52px;
-  padding-top:24px;border-top:1px solid var(--bd);
-}
-.h-stat{flex:1;padding-right:20px}
-.h-stat+.h-stat{padding-left:20px;border-left:1px solid var(--bd)}
-.h-stat-v{
-  font-family:var(--disp);font-weight:800;
-  font-size:26px;color:var(--ac);
-}
-.h-stat-l{
-  font-family:var(--mono);font-size:8px;
-  letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--tx2);margin-top:2px;
-}
-
-/* Hero visual */
-.hero-vis{
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-}
-.px-wrap{
-  position:relative;
-  display:flex;align-items:center;justify-content:center;
-}
-/* Concentric pulsing rings */
-.ring{
-  position:absolute;border:1px solid rgba(0,170,255,.07);
-  border-radius:0;
-}
-.ring-1{width:258px;height:258px;animation:ring-pulse 3.2s ease-in-out infinite}
-.ring-2{width:320px;height:320px;animation:ring-pulse 3.2s ease-in-out .7s infinite}
-.ring-3{width:384px;height:384px;animation:ring-pulse 3.2s ease-in-out 1.4s infinite}
-@keyframes ring-pulse{
-  0%,100%{transform:scale(1);opacity:.8}
-  50%{transform:scale(1.04);opacity:.3}
-}
-.px-logo-big{
-  animation:glow-b 2.8s ease-in-out infinite;
-  position:relative;z-index:2;
-}
-@keyframes glow-b{
-  0%,100%{filter:drop-shadow(0 0 18px var(--ac-glow)) drop-shadow(0 0 5px rgba(0,170,255,.7))}
-  50%{filter:drop-shadow(0 0 34px rgba(0,170,255,.55)) drop-shadow(0 0 10px rgba(0,170,255,.9))}
-}
-/* QR-style corner brackets */
-.qb{position:absolute;width:24px;height:24px}
-.qb svg rect{fill:var(--ac)}
-.qb.tl{top:-8px;left:-8px}
-.qb.tr{top:-8px;right:-8px;transform:scaleX(-1)}
-.qb.bl{bottom:-8px;left:-8px;transform:scaleY(-1)}
-.qb.br{bottom:-8px;right:-8px;transform:scale(-1)}
+.hero h1 .em{font-style:italic;color:var(--ac)}
+.hero-lead{font-size:clamp(17px,1.7vw,20px);color:var(--tx-2);max-width:480px;line-height:1.7;margin-bottom:36px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-vis{display:flex;align-items:center;justify-content:center}
+.dots-hero{width:100%;max-width:380px;height:auto}
 
 /* ═══════════════════════════════════════════════════════
-   DIVIDER
+   SECTION SHELL
 ═══════════════════════════════════════════════════════ */
-.divider{
-  border:none;border-top:1px solid var(--bd);
-  position:relative;
-}
-.divider::after{
-  content:'';position:absolute;
-  top:-1px;left:50%;transform:translateX(-50%);
-  width:80px;height:1px;background:var(--ac);opacity:.4;
-}
+section{position:relative}
+.block{padding:100px 0;border-top:1px solid var(--line)}
+.block-hd{max-width:720px;margin-bottom:56px}
 
 /* ═══════════════════════════════════════════════════════
-   SERVICES
+   ENFOQUE
 ═══════════════════════════════════════════════════════ */
-.services{padding:96px 0}
-.services-hd{
-  display:flex;justify-content:space-between;
-  align-items:flex-end;gap:40px;margin-bottom:48px;
-  flex-wrap:wrap;
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:64px}
+.step-n{
+  font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ac);
+  width:38px;height:38px;border:1px solid var(--ac-line);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
 }
-.srv-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:2px;
-}
-.srv-card{
-  background:var(--sf);border:1px solid var(--bd);
-  padding:36px;position:relative;overflow:hidden;
-  transition:border-color .28s,background .28s;
-}
-.srv-card::before{
-  content:'';position:absolute;
-  top:0;left:0;width:3px;height:0;
-  background:var(--ac);transition:height .3s;
-}
-.srv-card:hover{
-  border-color:rgba(0,170,255,.2);background:var(--sf2);
-}
-.srv-card:hover::before{height:100%}
-.srv-n{
-  position:absolute;top:34px;right:34px;
-  font-family:var(--mono);font-size:9px;
-  color:var(--tx3);letter-spacing:2px;
-}
-.srv-icon{
-  width:44px;height:44px;
-  border:1px solid var(--bd2);
-  display:flex;align-items:center;justify-content:center;
-  background:var(--ac-low);margin-bottom:18px;
-}
-.srv-name{
-  font-family:var(--disp);font-weight:700;
-  font-size:19px;color:#fff;margin-bottom:10px;
-  text-transform:uppercase;letter-spacing:.5px;
-}
-.srv-desc{
-  font-size:15px;color:var(--tx2);
-  font-weight:300;line-height:1.72;margin-bottom:20px;
-}
-.srv-tags{display:flex;flex-wrap:wrap;gap:6px}
-.srv-tags li{
-  font-family:var(--mono);font-size:8px;
-  letter-spacing:1px;text-transform:uppercase;
-  color:var(--ac);border:1px solid rgba(0,170,255,.18);
-  padding:3px 8px;background:var(--ac-low);
-}
+.step-h{font-family:var(--sans);font-weight:600;font-size:17px;color:var(--tx);margin-bottom:8px}
+.step-p{font-size:15px;color:var(--tx-2);line-height:1.6}
 
 /* ═══════════════════════════════════════════════════════
-   APPROACH
+   PRODUCTOS
 ═══════════════════════════════════════════════════════ */
-.approach{padding:96px 0;border-top:1px solid var(--bd)}
-.appr-hd{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:60px;align-items:start;margin-bottom:52px;
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.prod{
+  background:var(--surface);border:1px solid var(--line);border-radius:6px;
+  padding:38px;transition:border-color .25s,transform .25s,box-shadow .25s;
 }
-.pillar-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px}
-.pillar{
-  background:var(--sf);border:1px solid var(--bd);
-  padding:30px;transition:border-color .25s;
-}
-.pillar:hover{border-color:rgba(0,170,255,.18)}
-.pillar-n{
-  font-family:var(--mono);font-size:9px;
-  color:var(--ac);letter-spacing:2px;
-  display:block;margin-bottom:18px;
-}
-.pillar-h{
-  font-family:var(--disp);font-weight:700;
-  font-size:17px;color:#fff;margin-bottom:10px;
-  text-transform:uppercase;letter-spacing:.5px;
-}
-.pillar-p{
-  font-size:14px;color:var(--tx2);
-  font-weight:300;line-height:1.72;
-}
-
-/* Tech ticker */
-.ticker{
-  margin-top:52px;padding:18px 0;
-  border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);
-  overflow:hidden;position:relative;
-}
-.ticker::before,.ticker::after{
-  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;
-}
-.ticker::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
-.ticker::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
-.ticker-t{
-  display:flex;animation:ticker 28s linear infinite;
-  width:max-content;
-}
-.ticker-t:hover{animation-play-state:paused}
-.t-item{
-  font-family:var(--mono);font-size:9px;letter-spacing:2px;
-  text-transform:uppercase;color:var(--tx2);
-  padding:0 26px;border-right:1px solid var(--bd);
-  white-space:nowrap;
-}
-@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.prod:hover{border-color:var(--ac-line);transform:translateY(-3px);box-shadow:0 18px 40px -28px rgba(0,80,140,.35)}
+.prod-n{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--tx-3);letter-spacing:1px}
+.prod-name{font-family:var(--serif);font-weight:600;font-size:24px;color:var(--tx);margin:14px 0 12px;line-height:1.15}
+.prod-desc{font-size:15.5px;color:var(--tx-2);line-height:1.65;margin-bottom:22px}
+.prod-meta{display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line);padding-top:18px}
+.prod-meta div{display:flex;gap:10px;font-size:14px;line-height:1.5}
+.prod-meta .k{color:var(--ac);font-weight:600;min-width:88px;flex-shrink:0}
+.prod-meta .v{color:var(--tx-2)}
 
 /* ═══════════════════════════════════════════════════════
-   CONTACT
+   CREDIBILIDAD
 ═══════════════════════════════════════════════════════ */
-.contact{padding:96px 0;border-top:1px solid var(--bd)}
-.contact-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:80px;align-items:start;
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:30px}
+.stat-q{font-family:var(--serif);font-weight:500;font-size:19px;color:var(--tx);line-height:1.4;margin-bottom:16px}
+.stat-src{font-size:13px;font-weight:600;color:var(--tx-3);letter-spacing:.3px}
+.cred-note{
+  background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:4px;
+  padding:24px 28px;margin-bottom:24px;
 }
-.c-detail{margin-top:32px}
-.c-detail-l{
-  font-family:var(--mono);font-size:9px;
-  letter-spacing:2px;text-transform:uppercase;
-  color:var(--tx2);margin-bottom:5px;
-}
-.c-detail-v{
-  font-family:var(--disp);font-weight:700;
-  font-size:17px;color:var(--ac);
-}
-.c-detail-v.plain{color:var(--tx2);font-family:var(--cond);font-weight:300;font-size:15px}
+.cred-note .tag{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ac);display:block;margin-bottom:8px}
+.cred-note p{font-size:16px;color:var(--tx-2);line-height:1.65}
+.cred-line{font-size:16px;color:var(--tx-2);line-height:1.7;max-width:680px}
+.cred-line strong{color:var(--tx);font-weight:600}
 
-.cform{display:flex;flex-direction:column;gap:14px}
-.f-field{display:flex;flex-direction:column;gap:6px}
-.f-label{
-  font-family:var(--mono);font-size:9px;
-  letter-spacing:2px;text-transform:uppercase;color:var(--tx2);
+/* ═══════════════════════════════════════════════════════
+   SOBRE NOSOTROS
+═══════════════════════════════════════════════════════ */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.about-vis{display:flex;justify-content:center}
+.about-vis svg{width:100%;max-width:260px;height:auto;opacity:.9}
+.about-body p{font-size:17px;color:var(--tx-2);line-height:1.75;margin-bottom:18px}
+.about-body p:last-child{margin-bottom:0}
+
+/* ═══════════════════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════════════════ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line);padding:4px 0}
+.faq summary{
+  list-style:none;cursor:pointer;padding:22px 0;
+  font-family:var(--serif);font-weight:500;font-size:19px;color:var(--tx);
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
 }
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::marker{content:''}
+.faq summary::after{content:'+';font-family:var(--sans);font-weight:400;font-size:24px;color:var(--ac);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq-a{padding:0 0 24px;font-size:16px;color:var(--tx-2);line-height:1.7;max-width:660px}
+
+/* ═══════════════════════════════════════════════════════
+   CONTACTO
+═══════════════════════════════════════════════════════ */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.c-detail{margin-top:26px}
+.c-detail-l{font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--tx-3);margin-bottom:4px}
+.c-detail-v{font-size:16px;color:var(--tx)}
+.c-detail-v a:hover{color:var(--ac)}
+.cform{display:flex;flex-direction:column;gap:16px}
+.f-field{display:flex;flex-direction:column;gap:7px}
+.f-label{font-size:14px;font-weight:500;color:var(--tx-2)}
 .f-input{
-  background:var(--sf);border:1px solid var(--bd);
-  color:var(--tx);padding:12px 15px;
-  font-family:var(--cond);font-size:15px;
+  background:var(--surface);border:1px solid var(--line-2);border-radius:3px;
+  color:var(--tx);padding:13px 15px;font-family:var(--sans);font-size:15px;
   outline:none;transition:border-color .2s;
-  -webkit-appearance:none;appearance:none;
-  border-radius:0;
 }
-.f-input:focus{border-color:rgba(0,170,255,.38)}
-.f-input::placeholder{color:var(--tx3)}
-textarea.f-input{resize:vertical;min-height:110px}
-.f-btn{
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:2px;text-transform:uppercase;
-  background:var(--ac);color:var(--bg);border:none;
-  padding:13px 26px;font-weight:700;
-  align-self:flex-start;transition:filter .18s;
-}
-.f-btn:hover{filter:brightness(1.14)}
+.f-input:focus{border-color:var(--ac)}
+.f-input::placeholder{color:var(--tx-3)}
+textarea.f-input{resize:vertical;min-height:120px}
 
 /* ═══════════════════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════════════════ */
-footer{
-  padding:36px 0;
-  border-top:1px solid var(--bd);background:var(--sf);
-}
-.ft-in{
-  display:flex;align-items:center;
-  justify-content:space-between;gap:20px;flex-wrap:wrap;
-}
-.ft-logo{display:flex;align-items:center;gap:9px}
-.ft-brand{
-  font-family:var(--disp);font-weight:800;
-  font-size:14px;color:var(--tx2);
-}
-.ft-copy{
-  font-family:var(--mono);font-size:8px;
-  letter-spacing:1.5px;text-transform:uppercase;color:var(--tx3);
-}
-.ft-links{display:flex;gap:18px}
-.ft-links a{
-  font-family:var(--mono);font-size:8px;
-  letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--tx3);transition:color .2s;
-}
+footer{padding:44px 0;border-top:1px solid var(--line)}
+.ft-in{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.ft-logo{display:flex;align-items:center;gap:10px}
+.ft-brand{font-family:var(--serif);font-weight:600;font-size:17px;color:var(--tx)}
+.ft-copy{font-size:13px;color:var(--tx-3)}
+.ft-links{display:flex;gap:22px}
+.ft-links a{font-size:14px;color:var(--tx-2);transition:color .2s}
 .ft-links a:hover{color:var(--ac)}
 
 /* ═══════════════════════════════════════════════════════
@@ -441,444 +239,285 @@ footer{
 ═══════════════════════════════════════════════════════ */
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:48px}
-  .hero-vis{order:-1}
-  .ring-1{width:200px;height:200px}
-  .ring-2{width:248px;height:248px}
-  .ring-3{display:none}
-  .srv-grid{grid-template-columns:1fr}
-  .appr-hd{grid-template-columns:1fr;gap:20px}
-  .pillar-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr;gap:48px}
+  .hero-vis{order:-1;max-width:300px;margin:0 auto}
+  .steps{grid-template-columns:1fr 1fr;gap:32px}
+  .prod-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-vis{order:-1;max-width:200px;margin:0 auto}
+  .contact-grid{grid-template-columns:1fr;gap:44px}
   .nav-links{display:none}
 }
 @media(max-width:600px){
-  .wrap{padding:0 20px}
-  .hero h1{letter-spacing:-2px}
-  .hero-stats{flex-direction:column;gap:16px}
-  .h-stat+.h-stat{border-left:none;border-top:1px solid var(--bd);padding-left:0;padding-top:16px}
+  .wrap{padding:0 22px}
+  .block{padding:72px 0}
+  .steps{grid-template-columns:1fr}
   .ft-in{flex-direction:column;align-items:flex-start}
-  .services-hd{flex-direction:column;align-items:flex-start}
 }
 
 /* ═══════════════════════════════════════════════════════
-   SCROLL FADE-IN
+   SCROLL FADE-IN (discreto)
 ═══════════════════════════════════════════════════════ */
-.fade-in{
-  opacity:0;transform:translateY(20px);
-  transition:opacity .6s ease,transform .6s ease;
-}
+.fade-in{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.fade-in{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
-<!-- ════════════════════════════════════════════
-     NAV
-════════════════════════════════════════════ -->
+<!-- ═══════════ NAV ═══════════ -->
 <nav id="nav">
   <div class="wrap nav-in">
-    <a href="#inicio" class="nav-logo">
-      <!-- pixel 8×8 logo — green, viewBox clips to icon area -->
-      <svg class="nav-logo-svg" viewBox="9 20 43 43" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="21" width="5" height="5" fill="#00aaff"/>
-        <rect x="16" y="21" width="5" height="5" fill="#00aaff"/>
-        <rect x="22" y="21" width="5" height="5" fill="#00aaff"/>
-        <rect x="40" y="21" width="5" height="5" fill="#00aaff"/>
-        <rect x="46" y="21" width="5" height="5" fill="#00aaff"/>
-        <rect x="52" y="21" width="5" height="5" fill="#00aaff"/>
-        <rect x="10" y="27" width="5" height="5" fill="#00aaff"/>
-        <rect x="16" y="27" width="5" height="5" fill="#00aaff" opacity=".15"/>
-        <rect x="22" y="27" width="5" height="5" fill="#00aaff"/>
-        <rect x="40" y="27" width="5" height="5" fill="#00aaff"/>
-        <rect x="46" y="27" width="5" height="5" fill="#00aaff" opacity=".15"/>
-        <rect x="52" y="27" width="5" height="5" fill="#00aaff"/>
-        <rect x="10" y="33" width="5" height="5" fill="#00aaff"/>
-        <rect x="16" y="33" width="5" height="5" fill="#00aaff"/>
-        <rect x="22" y="33" width="5" height="5" fill="#00aaff"/>
-        <rect x="40" y="33" width="5" height="5" fill="#00aaff"/>
-        <rect x="46" y="33" width="5" height="5" fill="#00aaff"/>
-        <rect x="52" y="33" width="5" height="5" fill="#00aaff"/>
-        <rect x="28" y="39" width="5" height="5" fill="#00aaff"/>
-        <rect x="34" y="45" width="5" height="5" fill="#00aaff"/>
-        <rect x="10" y="51" width="5" height="5" fill="#00aaff"/>
-        <rect x="16" y="51" width="5" height="5" fill="#00aaff"/>
-        <rect x="22" y="51" width="5" height="5" fill="#00aaff"/>
-        <rect x="40" y="51" width="5" height="5" fill="#00aaff"/>
-        <rect x="10" y="57" width="5" height="5" fill="#00aaff"/>
-        <rect x="16" y="57" width="5" height="5" fill="#00aaff" opacity=".15"/>
-        <rect x="22" y="57" width="5" height="5" fill="#00aaff"/>
-        <rect x="46" y="57" width="5" height="5" fill="#00aaff"/>
-        <rect x="10" y="63" width="5" height="5" fill="#00aaff"/>
-        <rect x="16" y="63" width="5" height="5" fill="#00aaff"/>
-        <rect x="22" y="63" width="5" height="5" fill="#00aaff"/>
-        <rect x="52" y="63" width="5" height="5" fill="#00aaff"/>
+    <a href="#inicio" class="nav-logo" aria-label="Dataplex — inicio">
+      <svg width="42" height="30" viewBox="0 0 170 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="13" cy="12" r="1.5" fill="#00aaff" opacity=".06"/><circle cx="37" cy="12" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="61" cy="12" r="5" fill="#00aaff" opacity=".41"/><circle cx="85" cy="12" r="6" fill="#00aaff" opacity=".47"/><circle cx="109" cy="12" r="5" fill="#00aaff" opacity=".41"/><circle cx="133" cy="12" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="157" cy="12" r="1.5" fill="#00aaff" opacity=".06"/>
+        <circle cx="13" cy="36" r="2" fill="#00aaff" opacity=".17"/><circle cx="37" cy="36" r="5" fill="#00aaff" opacity=".41"/><circle cx="61" cy="36" r="8" fill="#00aaff" opacity=".62"/><circle cx="85" cy="36" r="10" fill="#00aaff" opacity=".74"/><circle cx="109" cy="36" r="8" fill="#00aaff" opacity=".62"/><circle cx="133" cy="36" r="5" fill="#00aaff" opacity=".41"/><circle cx="157" cy="36" r="2" fill="#00aaff" opacity=".17"/>
+        <circle cx="13" cy="60" r="3" fill="#00aaff" opacity=".21"/><circle cx="37" cy="60" r="6" fill="#00aaff" opacity=".47"/><circle cx="61" cy="60" r="10" fill="#00aaff" opacity=".74"/><circle cx="85" cy="60" r="12" fill="#00aaff" opacity="1"/><circle cx="109" cy="60" r="10" fill="#00aaff" opacity=".74"/><circle cx="133" cy="60" r="6" fill="#00aaff" opacity=".47"/><circle cx="157" cy="60" r="3" fill="#00aaff" opacity=".21"/>
+        <circle cx="13" cy="84" r="2" fill="#00aaff" opacity=".17"/><circle cx="37" cy="84" r="5" fill="#00aaff" opacity=".41"/><circle cx="61" cy="84" r="8" fill="#00aaff" opacity=".62"/><circle cx="85" cy="84" r="10" fill="#00aaff" opacity=".74"/><circle cx="109" cy="84" r="8" fill="#00aaff" opacity=".62"/><circle cx="133" cy="84" r="5" fill="#00aaff" opacity=".41"/><circle cx="157" cy="84" r="2" fill="#00aaff" opacity=".17"/>
+        <circle cx="13" cy="108" r="1.5" fill="#00aaff" opacity=".06"/><circle cx="37" cy="108" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="61" cy="108" r="5" fill="#00aaff" opacity=".41"/><circle cx="85" cy="108" r="6" fill="#00aaff" opacity=".47"/><circle cx="109" cy="108" r="5" fill="#00aaff" opacity=".41"/><circle cx="133" cy="108" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="157" cy="108" r="1.5" fill="#00aaff" opacity=".06"/>
       </svg>
-      <span class="nav-brand">DATAPLEX</span>
+      <span class="nav-brand">Dataplex</span>
     </a>
-
     <ul class="nav-links">
-      <li><a href="#servicios">Servicios</a></li>
       <li><a href="#enfoque">Enfoque</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
-
-    <a href="#contacto" class="nav-cta">Hablemos →</a>
+    <a href="#contacto" class="nav-cta">Agenda un diagnóstico</a>
   </div>
 </nav>
 
 <main>
 
-<!-- ════════════════════════════════════════════
-     HERO
-════════════════════════════════════════════ -->
+<!-- ═══════════ HERO ═══════════ -->
 <section id="inicio" class="hero">
   <div class="wrap">
     <div class="hero-grid">
-
-      <!-- LEFT -->
       <div>
-        <div class="hero-badge">
-          <div class="tag"><span class="blink"></span>Analítica · IA · Estrategia</div>
-        </div>
-        <h1>DATA<br>PLEX</h1>
-        <p class="hero-strap">Intelligence beyond data</p>
-        <p class="hero-desc">Transformamos datos complejos en decisiones que impulsan el negocio. Consultoría y desarrollo especializado en analítica avanzada e inteligencia artificial.</p>
+        <p class="eyebrow">IA para la dirección de la PYME</p>
+        <h1>Decisiones más <span class="em">inteligentes</span>.<br>Procesos más <span class="em">eficientes</span>.</h1>
+        <p class="hero-lead">Llevamos a tu empresa las capacidades de IA que hasta hace poco solo estaban al alcance de las grandes. Sin jerga, sin proyectos eternos: soluciones que se traducen en mejores decisiones y menos trabajo manual.</p>
         <div class="hero-ctas">
-          <a href="#servicios" class="btn btn-green">Ver servicios</a>
-          <a href="#contacto" class="btn btn-outline">Hablemos →</a>
-        </div>
-        <div class="hero-stats">
-          <div class="h-stat">
-            <div class="h-stat-v">100%</div>
-            <div class="h-stat-l">Open source</div>
-          </div>
-          <div class="h-stat">
-            <div class="h-stat-v">Cloud</div>
-            <div class="h-stat-l">Native first</div>
-          </div>
-          <div class="h-stat">
-            <div class="h-stat-v">Data</div>
-            <div class="h-stat-l">Led decisions</div>
-          </div>
+          <a href="#contacto" class="btn btn-primary">Agenda un diagnóstico</a>
+          <a href="#productos" class="btn btn-ghost">Ver productos</a>
         </div>
       </div>
-
-      <!-- RIGHT: pixel logo visual -->
       <div class="hero-vis">
-        <div class="px-wrap">
-          <div class="ring ring-1"></div>
-          <div class="ring ring-2"></div>
-          <div class="ring ring-3"></div>
-          <!-- corner brackets -->
-          <div class="qb tl"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="21" width="6" height="6" fill="#00aaff"/>
-        <rect x="17" y="21" width="6" height="6" fill="#00aaff"/>
-        <rect x="24" y="21" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="31" y="21" width="6" height="6" fill="#00aaff"/>
-        <rect x="38" y="21" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="45" y="21" width="6" height="6" fill="#00aaff"/>
-        <rect x="10" y="28" width="6" height="6" fill="#00aaff"/>
-        <rect x="17" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="24" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="31" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="38" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="45" y="28" width="6" height="6" fill="#00aaff"/>
-        <rect x="10" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="17" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="24" y="35" width="6" height="6" fill="#00aaff"/>
-        <rect x="31" y="35" width="6" height="6" fill="#00aaff"/>
-        <rect x="38" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="45" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="10" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="17" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="24" y="42" width="6" height="6" fill="#00aaff"/>
-        <rect x="31" y="42" width="6" height="6" fill="#00aaff"/>
-        <rect x="38" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="45" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="10" y="49" width="6" height="6" fill="#00aaff"/>
-        <rect x="17" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="24" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="31" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="38" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="45" y="49" width="6" height="6" fill="#00aaff"/>
-        <rect x="10" y="56" width="6" height="6" fill="#00aaff"/>
-        <rect x="17" y="56" width="6" height="6" fill="#00aaff"/>
-        <rect x="24" y="56" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="31" y="56" width="6" height="6" fill="#00aaff"/>
-        <rect x="38" y="56" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="45" y="56" width="6" height="6" fill="#00aaff"/>
-      </svg></div>
-          <div class="qb tr"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="24" height="4" fill="#00aaff"/><rect x="0" y="0" width="4" height="24" fill="#00aaff"/></svg></div>
-          <div class="qb bl"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="24" height="4" fill="#00aaff"/><rect x="0" y="0" width="4" height="24" fill="#00aaff"/></svg></div>
-          <div class="qb br"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="24" height="4" fill="#00aaff"/><rect x="0" y="0" width="4" height="24" fill="#00aaff"/></svg></div>
-          <!-- BIG pixel logo -->
-          <svg class="px-logo-big" viewBox="9 20 43 43" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="21" width="5" height="5" fill="#00aaff"/>
-            <rect x="16" y="21" width="5" height="5" fill="#00aaff"/>
-            <rect x="22" y="21" width="5" height="5" fill="#00aaff"/>
-            <rect x="40" y="21" width="5" height="5" fill="#00aaff"/>
-            <rect x="46" y="21" width="5" height="5" fill="#00aaff"/>
-            <rect x="52" y="21" width="5" height="5" fill="#00aaff"/>
-            <rect x="10" y="27" width="5" height="5" fill="#00aaff"/>
-            <rect x="16" y="27" width="5" height="5" fill="#00aaff" opacity=".18"/>
-            <rect x="22" y="27" width="5" height="5" fill="#00aaff"/>
-            <rect x="40" y="27" width="5" height="5" fill="#00aaff"/>
-            <rect x="46" y="27" width="5" height="5" fill="#00aaff" opacity=".18"/>
-            <rect x="52" y="27" width="5" height="5" fill="#00aaff"/>
-            <rect x="10" y="33" width="5" height="5" fill="#00aaff"/>
-            <rect x="16" y="33" width="5" height="5" fill="#00aaff"/>
-            <rect x="22" y="33" width="5" height="5" fill="#00aaff"/>
-            <rect x="40" y="33" width="5" height="5" fill="#00aaff"/>
-            <rect x="46" y="33" width="5" height="5" fill="#00aaff"/>
-            <rect x="52" y="33" width="5" height="5" fill="#00aaff"/>
-            <rect x="28" y="39" width="5" height="5" fill="#00aaff"/>
-            <rect x="34" y="45" width="5" height="5" fill="#00aaff"/>
-            <rect x="10" y="51" width="5" height="5" fill="#00aaff"/>
-            <rect x="16" y="51" width="5" height="5" fill="#00aaff"/>
-            <rect x="22" y="51" width="5" height="5" fill="#00aaff"/>
-            <rect x="40" y="51" width="5" height="5" fill="#00aaff"/>
-            <rect x="10" y="57" width="5" height="5" fill="#00aaff"/>
-            <rect x="16" y="57" width="5" height="5" fill="#00aaff" opacity=".18"/>
-            <rect x="22" y="57" width="5" height="5" fill="#00aaff"/>
-            <rect x="46" y="57" width="5" height="5" fill="#00aaff"/>
-            <rect x="10" y="63" width="5" height="5" fill="#00aaff"/>
-            <rect x="16" y="63" width="5" height="5" fill="#00aaff"/>
-            <rect x="22" y="63" width="5" height="5" fill="#00aaff"/>
-            <rect x="52" y="63" width="5" height="5" fill="#00aaff"/>
-          </svg>
-        </div>
+        <svg class="dots-hero" viewBox="0 0 170 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="13" cy="12" r="1.5" fill="#00aaff" opacity=".06"/><circle cx="37" cy="12" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="61" cy="12" r="5" fill="#00aaff" opacity=".41"/><circle cx="85" cy="12" r="6" fill="#00aaff" opacity=".47"/><circle cx="109" cy="12" r="5" fill="#00aaff" opacity=".41"/><circle cx="133" cy="12" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="157" cy="12" r="1.5" fill="#00aaff" opacity=".06"/>
+          <circle cx="13" cy="36" r="2" fill="#00aaff" opacity=".17"/><circle cx="37" cy="36" r="5" fill="#00aaff" opacity=".41"/><circle cx="61" cy="36" r="8" fill="#00aaff" opacity=".62"/><circle cx="85" cy="36" r="10" fill="#00aaff" opacity=".74"/><circle cx="109" cy="36" r="8" fill="#00aaff" opacity=".62"/><circle cx="133" cy="36" r="5" fill="#00aaff" opacity=".41"/><circle cx="157" cy="36" r="2" fill="#00aaff" opacity=".17"/>
+          <circle cx="13" cy="60" r="3" fill="#00aaff" opacity=".21"/><circle cx="37" cy="60" r="6" fill="#00aaff" opacity=".47"/><circle cx="61" cy="60" r="10" fill="#00aaff" opacity=".74"/><circle cx="85" cy="60" r="12" fill="#00aaff" opacity="1"/><circle cx="109" cy="60" r="10" fill="#00aaff" opacity=".74"/><circle cx="133" cy="60" r="6" fill="#00aaff" opacity=".47"/><circle cx="157" cy="60" r="3" fill="#00aaff" opacity=".21"/>
+          <circle cx="13" cy="84" r="2" fill="#00aaff" opacity=".17"/><circle cx="37" cy="84" r="5" fill="#00aaff" opacity=".41"/><circle cx="61" cy="84" r="8" fill="#00aaff" opacity=".62"/><circle cx="85" cy="84" r="10" fill="#00aaff" opacity=".74"/><circle cx="109" cy="84" r="8" fill="#00aaff" opacity=".62"/><circle cx="133" cy="84" r="5" fill="#00aaff" opacity=".41"/><circle cx="157" cy="84" r="2" fill="#00aaff" opacity=".17"/>
+          <circle cx="13" cy="108" r="1.5" fill="#00aaff" opacity=".06"/><circle cx="37" cy="108" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="61" cy="108" r="5" fill="#00aaff" opacity=".41"/><circle cx="85" cy="108" r="6" fill="#00aaff" opacity=".47"/><circle cx="109" cy="108" r="5" fill="#00aaff" opacity=".41"/><circle cx="133" cy="108" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="157" cy="108" r="1.5" fill="#00aaff" opacity=".06"/>
+        </svg>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════
-     SERVICES
-════════════════════════════════════════════ -->
-<section id="servicios" class="services" style="border-top:1px solid var(--bd)">
+<!-- ═══════════ ENFOQUE ═══════════ -->
+<section id="enfoque" class="block">
   <div class="wrap">
-    <div class="services-hd fade-in">
-      <div>
-        <div class="sec-label">// Servicios</div>
-        <h2 class="sec-h">Qué hacemos</h2>
-      </div>
-      <p class="sec-p" style="margin-top:0">Acompañamos a las organizaciones en cada etapa de su transformación basada en datos, desde la estrategia hasta la operación en producción.</p>
+    <div class="block-hd fade-in">
+      <p class="eyebrow">Nuestro enfoque</p>
+      <h2 class="sec-h">La consultoría que solo tenían las grandes, ahora a tu medida</h2>
+      <p class="sec-lead">Durante años, la analítica avanzada, la automatización y el asesoramiento basado en datos fueron un lujo reservado a las grandes corporaciones. La IA ha cambiado las reglas: hoy podemos implantar esas mismas capacidades en una PYME, en semanas y a un coste asumible. Esa es la razón de ser de Dataplex.</p>
     </div>
 
-    <div class="srv-grid">
-      <!-- 01 -->
-      <div class="srv-card fade-in">
-        <span class="srv-n">01</span>
-        <div class="srv-icon">
-          <svg width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="21" width="6" height="6" fill="#00aaff"/>
-        <rect x="17" y="21" width="6" height="6" fill="#00aaff"/>
-        <rect x="24" y="21" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="31" y="21" width="6" height="6" fill="#00aaff"/>
-        <rect x="38" y="21" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="45" y="21" width="6" height="6" fill="#00aaff"/>
-        <rect x="10" y="28" width="6" height="6" fill="#00aaff"/>
-        <rect x="17" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="24" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="31" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="38" y="28" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="45" y="28" width="6" height="6" fill="#00aaff"/>
-        <rect x="10" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="17" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="24" y="35" width="6" height="6" fill="#00aaff"/>
-        <rect x="31" y="35" width="6" height="6" fill="#00aaff"/>
-        <rect x="38" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="45" y="35" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="10" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="17" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="24" y="42" width="6" height="6" fill="#00aaff"/>
-        <rect x="31" y="42" width="6" height="6" fill="#00aaff"/>
-        <rect x="38" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="45" y="42" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="10" y="49" width="6" height="6" fill="#00aaff"/>
-        <rect x="17" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="24" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="31" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="38" y="49" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="45" y="49" width="6" height="6" fill="#00aaff"/>
-        <rect x="10" y="56" width="6" height="6" fill="#00aaff"/>
-        <rect x="17" y="56" width="6" height="6" fill="#00aaff"/>
-        <rect x="24" y="56" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="31" y="56" width="6" height="6" fill="#00aaff"/>
-        <rect x="38" y="56" width="6" height="6" fill="#00aaff" opacity=".07"/>
-        <rect x="45" y="56" width="6" height="6" fill="#00aaff"/>
-      </svg>
-        </div>
-        <h3 class="srv-name">Analítica Avanzada</h3>
-        <p class="srv-desc">Dashboards ejecutivos, modelos predictivos y análisis exploratorio para convertir tus datos en ventaja competitiva real y cuantificable.</p>
-        <ul class="srv-tags">
-          <li>BI & Dashboards</li><li>Modelos predictivos</li>
-          <li>Real-time analytics</li><li>Self-service BI</li>
-        </ul>
+    <div class="steps fade-in">
+      <div>
+        <div class="step-n">1</div>
+        <h3 class="step-h">Diagnóstico</h3>
+        <p class="step-p">Entendemos tu negocio y detectamos dónde la IA aporta más valor, hoy.</p>
       </div>
-      <!-- 02 -->
-      <div class="srv-card fade-in">
-        <span class="srv-n">02</span>
-        <div class="srv-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="11" cy="11" r="2.5" fill="#00aaff"/>
-            <circle cx="3"  cy="3"  r="1.8" fill="#00aaff" opacity=".6"/>
-            <circle cx="19" cy="3"  r="1.8" fill="#00aaff" opacity=".6"/>
-            <circle cx="3"  cy="19" r="1.8" fill="#00aaff" opacity=".6"/>
-            <circle cx="19" cy="19" r="1.8" fill="#00aaff" opacity=".6"/>
-            <circle cx="11" cy="3"  r="1.4" fill="#00aaff" opacity=".4"/>
-            <circle cx="3"  cy="11" r="1.4" fill="#00aaff" opacity=".4"/>
-            <circle cx="19" cy="11" r="1.4" fill="#00aaff" opacity=".4"/>
-            <circle cx="11" cy="19" r="1.4" fill="#00aaff" opacity=".4"/>
-            <line x1="11" y1="11" x2="3"  y2="3"  stroke="#00aaff" stroke-width=".7" opacity=".35"/>
-            <line x1="11" y1="11" x2="19" y2="3"  stroke="#00aaff" stroke-width=".7" opacity=".35"/>
-            <line x1="11" y1="11" x2="3"  y2="19" stroke="#00aaff" stroke-width=".7" opacity=".35"/>
-            <line x1="11" y1="11" x2="19" y2="19" stroke="#00aaff" stroke-width=".7" opacity=".35"/>
-            <line x1="11" y1="11" x2="11" y2="3"  stroke="#00aaff" stroke-width=".7" opacity=".25"/>
-            <line x1="11" y1="11" x2="3"  y2="11" stroke="#00aaff" stroke-width=".7" opacity=".25"/>
-            <line x1="11" y1="11" x2="19" y2="11" stroke="#00aaff" stroke-width=".7" opacity=".25"/>
-            <line x1="11" y1="11" x2="11" y2="19" stroke="#00aaff" stroke-width=".7" opacity=".25"/>
-          </svg>
-        </div>
-        <h3 class="srv-name">Inteligencia Artificial</h3>
-        <p class="srv-desc">Modelos de machine learning y deep learning a medida: clasificación, predicción, NLP, LLMs y sistemas de recomendación integrados en el negocio.</p>
-        <ul class="srv-tags">
-          <li>ML / Deep Learning</li><li>NLP & LLMs</li>
-          <li>Computer Vision</li><li>MLOps</li>
-        </ul>
+      <div>
+        <div class="step-n">2</div>
+        <h3 class="step-h">Diseño</h3>
+        <p class="step-p">Definimos una solución a medida y el retorno que esperamos de ella.</p>
       </div>
-      <!-- 03 -->
-      <div class="srv-card fade-in">
-        <span class="srv-n">03</span>
-        <div class="srv-icon">
-          <svg width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
-            <rect x="0" y="2"  width="7" height="4" fill="none" stroke="#00aaff" stroke-width="1"/>
-            <rect x="15" y="2" width="7" height="4" fill="none" stroke="#00aaff" stroke-width="1"/>
-            <rect x="7"  y="12" width="8" height="4" fill="none" stroke="#00aaff" stroke-width="1"/>
-            <line x1="7"  y1="4"   x2="15" y2="4"   stroke="#00aaff" stroke-width=".8" opacity=".45"/>
-            <line x1="18.5" y1="6" x2="18.5" y2="9" stroke="#00aaff" stroke-width=".8" opacity=".45"/>
-            <line x1="3.5"  y1="6" x2="3.5"  y2="9" stroke="#00aaff" stroke-width=".8" opacity=".45"/>
-            <line x1="3.5"  y1="9" x2="11"   y2="9" stroke="#00aaff" stroke-width=".8" opacity=".45"/>
-            <line x1="18.5" y1="9" x2="11"   y2="9" stroke="#00aaff" stroke-width=".8" opacity=".45"/>
-            <line x1="11"   y1="9" x2="11"   y2="12" stroke="#00aaff" stroke-width=".8" opacity=".45"/>
-          </svg>
-        </div>
-        <h3 class="srv-name">Ingeniería de Datos</h3>
-        <p class="srv-desc">Pipelines robustos, data lakes, warehouses y arquitecturas cloud escalables que garantizan la calidad, disponibilidad y trazabilidad de tus datos.</p>
-        <ul class="srv-tags">
-          <li>Pipelines & ETL/ELT</li><li>Data Lake / Warehouse</li>
-          <li>Cloud Architecture</li><li>Data Quality</li>
-        </ul>
+      <div>
+        <div class="step-n">3</div>
+        <h3 class="step-h">Implantación</h3>
+        <p class="step-p">La ponemos en marcha integrada en tu día a día, no en un cajón.</p>
       </div>
-      <!-- 04 -->
-      <div class="srv-card fade-in">
-        <span class="srv-n">04</span>
-        <div class="srv-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="11" cy="11" r="10" fill="none" stroke="#00aaff" stroke-width=".8" opacity=".3"/>
-            <circle cx="11" cy="11" r="6.5" fill="none" stroke="#00aaff" stroke-width=".8" opacity=".5"/>
-            <circle cx="11" cy="11" r="3"   fill="none" stroke="#00aaff" stroke-width=".8" opacity=".8"/>
-            <circle cx="11" cy="11" r="1.2" fill="#00aaff"/>
-            <line x1="11" y1="1"  x2="11" y2="4"  stroke="#00aaff" stroke-width=".8" opacity=".4"/>
-            <line x1="11" y1="18" x2="11" y2="21" stroke="#00aaff" stroke-width=".8" opacity=".4"/>
-          </svg>
-        </div>
-        <h3 class="srv-name">Estrategia de Datos</h3>
-        <p class="srv-desc">Hoja de ruta de datos para tu organización: governance, selección tecnológica, data culture y gestión del cambio para maximizar el retorno.</p>
-        <ul class="srv-tags">
-          <li>Data Governance</li><li>Roadmapping</li>
-          <li>Tech Selection</li><li>Data Culture</li>
-        </ul>
+      <div>
+        <div class="step-n">4</div>
+        <h3 class="step-h">Acompañamiento</h3>
+        <p class="step-p">La mantenemos y la hacemos evolucionar contigo a lo largo del tiempo.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════
-     APPROACH
-════════════════════════════════════════════ -->
-<section id="enfoque" class="approach">
+<!-- ═══════════ PRODUCTOS ═══════════ -->
+<section id="productos" class="block">
   <div class="wrap">
-    <div class="appr-hd fade-in">
-      <div>
-        <div class="sec-label">// Nuestro enfoque</div>
-        <h2 class="sec-h">Tres principios<br>que guían cada proyecto</h2>
-      </div>
-      <p class="sec-p" style="max-width:100%;margin-top:0">No entregamos informes: entregamos soluciones en producción. Somos un equipo técnico que entiende el negocio y trabaja con objetivos de negocio medibles desde el primer día.</p>
+    <div class="block-hd fade-in">
+      <p class="eyebrow">Productos</p>
+      <h2 class="sec-h">Soluciones de IA listas para tu empresa</h2>
+      <p class="sec-lead">Cuatro formas concretas de poner la IA a trabajar para tu negocio. Disponibles hoy, implantadas a tu medida.</p>
     </div>
 
-    <div class="pillar-grid">
-      <div class="pillar fade-in">
-        <span class="pillar-n">01 ·</span>
-        <h3 class="pillar-h">Calidad de datos primero</h3>
-        <p class="pillar-p">La calidad del modelo depende de la calidad del dato. Auditamos, limpiamos y estructuramos antes de analizar. Sin atajos.</p>
+    <div class="prod-grid">
+      <article class="prod fade-in">
+        <span class="prod-n">01</span>
+        <h3 class="prod-name">Formación en IA para directivos</h3>
+        <p class="prod-desc">Un programa práctico para que tu equipo directivo entienda, decida y lidere la adopción de IA en la empresa, con criterio y sin humo.</p>
+        <div class="prod-meta">
+          <div><span class="k">Para quién</span><span class="v">Comités de dirección, gerencia y mandos.</span></div>
+          <div><span class="k">Resultado</span><span class="v">Una dirección que sabe dónde aplica la IA y prioriza con cabeza.</span></div>
+        </div>
+      </article>
+
+      <article class="prod fade-in">
+        <span class="prod-n">02</span>
+        <h3 class="prod-name">Asesor de negocio con IA</h3>
+        <p class="prod-desc">Un asistente que conoce tu negocio y responde con tus datos: ventas, costes, clientes, escenarios. Como tener un analista disponible a cualquier hora.</p>
+        <div class="prod-meta">
+          <div><span class="k">Para quién</span><span class="v">Gerencia y dirección que necesita respuestas rápidas y fundamentadas.</span></div>
+          <div><span class="k">Resultado</span><span class="v">Decisiones más rápidas y mejor fundamentadas, sin esperar informes.</span></div>
+        </div>
+      </article>
+
+      <article class="prod fade-in">
+        <span class="prod-n">03</span>
+        <h3 class="prod-name">Control de gestión con IA</h3>
+        <p class="prod-desc">Convierte tu contabilidad en información de gestión: márgenes reales, rentabilidad por línea de negocio, desviaciones y alertas tempranas.</p>
+        <div class="prod-meta">
+          <div><span class="k">Para quién</span><span class="v">Dirección financiera, CFO y gerencia.</span></div>
+          <div><span class="k">Resultado</span><span class="v">Saber en todo momento qué te hace ganar dinero y qué te lo cuesta.</span></div>
+        </div>
+      </article>
+
+      <article class="prod fade-in">
+        <span class="prod-n">04</span>
+        <h3 class="prod-name">Propuestas comerciales con IA</h3>
+        <p class="prod-desc">Genera propuestas y presupuestos competitivos en minutos, incorporando automáticamente el know-how de tu empresa en cada oferta.</p>
+        <div class="prod-meta">
+          <div><span class="k">Para quién</span><span class="v">Equipos comerciales con poca capacidad para elaborar ofertas.</span></div>
+          <div><span class="k">Resultado</span><span class="v">Más propuestas, mejores y más rápidas, sin perder tu criterio.</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CREDIBILIDAD ═══════════ -->
+<section id="porque" class="block">
+  <div class="wrap">
+    <div class="block-hd fade-in">
+      <p class="eyebrow">Por qué ahora</p>
+      <h2 class="sec-h">La IA ha dejado de ser una promesa</h2>
+      <p class="sec-lead">No lo decimos nosotros: lo dicen los datos. La oportunidad de aplicar IA a la gestión es real y está al alcance de la PYME por primera vez.</p>
+    </div>
+
+    <div class="stats fade-in">
+      <div class="stat">
+        <p class="stat-q">La IA generativa podría automatizar tareas que hoy ocupan entre el 60 % y el 70 % del tiempo de trabajo.</p>
+        <p class="stat-src">McKinsey · The economic potential of generative AI, 2023</p>
       </div>
-      <div class="pillar fade-in">
-        <span class="pillar-n">02 ·</span>
-        <h3 class="pillar-h">Impacto medible</h3>
-        <p class="pillar-p">Cada proyecto tiene objetivos de negocio y métricas de éxito definidas desde el inicio. Valor cuantificable, no presentaciones.</p>
+      <div class="stat">
+        <p class="stat-q">El objetivo europeo es que el 75 % de las empresas usen IA, cloud o big data en 2030.</p>
+        <p class="stat-src">Comisión Europea · Década Digital</p>
       </div>
-      <div class="pillar fade-in">
-        <span class="pillar-n">03 ·</span>
-        <h3 class="pillar-h">Tecnología abierta</h3>
-        <p class="pillar-p">Stack open source y cloud líder. Sin vendor lock-in: tú controlas tu arquitectura y tus datos, siempre.</p>
+      <div class="stat">
+        <p class="stat-q">La adopción de IA en las pymes va muy por detrás de la de las grandes empresas.</p>
+        <p class="stat-src">Eurostat · Uso de IA en empresas de la UE</p>
       </div>
     </div>
 
-    <!-- Technology ticker -->
-    <div class="ticker fade-in">
-      <div class="ticker-t" aria-hidden="true">
-        <span class="t-item">Python</span><span class="t-item">Apache Spark</span>
-        <span class="t-item">dbt</span><span class="t-item">Airflow</span>
-        <span class="t-item">Kafka</span><span class="t-item">PostgreSQL</span>
-        <span class="t-item">Snowflake</span><span class="t-item">BigQuery</span>
-        <span class="t-item">AWS</span><span class="t-item">Azure</span>
-        <span class="t-item">GCP</span><span class="t-item">Kubernetes</span>
-        <span class="t-item">MLflow</span><span class="t-item">Hugging Face</span>
-        <span class="t-item">LangChain</span><span class="t-item">Power BI</span>
-        <span class="t-item">Tableau</span><span class="t-item">Metabase</span>
-        <!-- duplicate for seamless loop -->
-        <span class="t-item">Python</span><span class="t-item">Apache Spark</span>
-        <span class="t-item">dbt</span><span class="t-item">Airflow</span>
-        <span class="t-item">Kafka</span><span class="t-item">PostgreSQL</span>
-        <span class="t-item">Snowflake</span><span class="t-item">BigQuery</span>
-        <span class="t-item">AWS</span><span class="t-item">Azure</span>
-        <span class="t-item">GCP</span><span class="t-item">Kubernetes</span>
-        <span class="t-item">MLflow</span><span class="t-item">Hugging Face</span>
-        <span class="t-item">LangChain</span><span class="t-item">Power BI</span>
-        <span class="t-item">Tableau</span><span class="t-item">Metabase</span>
+    <div class="cred-note fade-in">
+      <span class="tag">Ejemplo ilustrativo</span>
+      <p>Una asesoría con un equipo reducido automatiza la elaboración de propuestas: pasa de enviar unas pocas ofertas a la semana a multiplicar su capacidad, sin contratar más personal y sin perder su criterio profesional.</p>
+    </div>
+
+    <p class="cred-line fade-in"><strong>Nuestro objetivo en cada proyecto es que la solución se pague sola:</strong> que el valor que genera supere con holgura lo que cuesta. Trabajamos con un grupo reducido de empresas para garantizar un acompañamiento cercano y resultados de verdad.</p>
+  </div>
+</section>
+
+<!-- ═══════════ SOBRE NOSOTROS ═══════════ -->
+<section id="nosotros" class="block">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-vis fade-in">
+        <svg viewBox="0 0 170 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="13" cy="12" r="1.5" fill="#00aaff" opacity=".06"/><circle cx="37" cy="12" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="61" cy="12" r="5" fill="#00aaff" opacity=".41"/><circle cx="85" cy="12" r="6" fill="#00aaff" opacity=".47"/><circle cx="109" cy="12" r="5" fill="#00aaff" opacity=".41"/><circle cx="133" cy="12" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="157" cy="12" r="1.5" fill="#00aaff" opacity=".06"/>
+          <circle cx="13" cy="36" r="2" fill="#00aaff" opacity=".17"/><circle cx="37" cy="36" r="5" fill="#00aaff" opacity=".41"/><circle cx="61" cy="36" r="8" fill="#00aaff" opacity=".62"/><circle cx="85" cy="36" r="10" fill="#00aaff" opacity=".74"/><circle cx="109" cy="36" r="8" fill="#00aaff" opacity=".62"/><circle cx="133" cy="36" r="5" fill="#00aaff" opacity=".41"/><circle cx="157" cy="36" r="2" fill="#00aaff" opacity=".17"/>
+          <circle cx="13" cy="60" r="3" fill="#00aaff" opacity=".21"/><circle cx="37" cy="60" r="6" fill="#00aaff" opacity=".47"/><circle cx="61" cy="60" r="10" fill="#00aaff" opacity=".74"/><circle cx="85" cy="60" r="12" fill="#00aaff" opacity="1"/><circle cx="109" cy="60" r="10" fill="#00aaff" opacity=".74"/><circle cx="133" cy="60" r="6" fill="#00aaff" opacity=".47"/><circle cx="157" cy="60" r="3" fill="#00aaff" opacity=".21"/>
+          <circle cx="13" cy="84" r="2" fill="#00aaff" opacity=".17"/><circle cx="37" cy="84" r="5" fill="#00aaff" opacity=".41"/><circle cx="61" cy="84" r="8" fill="#00aaff" opacity=".62"/><circle cx="85" cy="84" r="10" fill="#00aaff" opacity=".74"/><circle cx="109" cy="84" r="8" fill="#00aaff" opacity=".62"/><circle cx="133" cy="84" r="5" fill="#00aaff" opacity=".41"/><circle cx="157" cy="84" r="2" fill="#00aaff" opacity=".17"/>
+          <circle cx="13" cy="108" r="1.5" fill="#00aaff" opacity=".06"/><circle cx="37" cy="108" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="61" cy="108" r="5" fill="#00aaff" opacity=".41"/><circle cx="85" cy="108" r="6" fill="#00aaff" opacity=".47"/><circle cx="109" cy="108" r="5" fill="#00aaff" opacity=".41"/><circle cx="133" cy="108" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="157" cy="108" r="1.5" fill="#00aaff" opacity=".06"/>
+        </svg>
+      </div>
+      <div class="about-body fade-in">
+        <p class="eyebrow">Sobre nosotros</p>
+        <h2 class="sec-h" style="margin-bottom:24px">Experiencia de gran empresa, al servicio de la tuya</h2>
+        <p>Somos un equipo de profesionales con una larga trayectoria en consultoría para grandes compañías. Hemos vivido por dentro cómo las grandes organizaciones usan los datos y la tecnología para decidir mejor y operar de forma más eficiente.</p>
+        <p>Hemos decidido poner ese conocimiento y esa experiencia al servicio de la PYME: las mismas capacidades que transforman a las grandes empresas, adaptadas a tu realidad y a tu presupuesto.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════
-     CONTACT
-════════════════════════════════════════════ -->
-<section id="contacto" class="contact">
+<!-- ═══════════ FAQ ═══════════ -->
+<section id="faq" class="block">
+  <div class="wrap">
+    <div class="block-hd fade-in" style="text-align:center;margin:0 auto 48px">
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2 class="sec-h">Lo que sueles preguntarte antes de empezar</h2>
+    </div>
+    <div class="faq-list fade-in">
+      <details>
+        <summary>¿Necesito tener mis datos ordenados o un equipo técnico para empezar?</summary>
+        <p class="faq-a">No. Partimos de donde estés. Nosotros nos ocupamos de toda la parte técnica y, en el diagnóstico inicial, vemos qué información tienes y qué hace falta para sacarle partido.</p>
+      </details>
+      <details>
+        <summary>¿Cómo garantizáis la confidencialidad y seguridad de mis datos?</summary>
+        <p class="faq-a">Tus datos son tuyos. Trabajamos con criterios estrictos de confidencialidad y seguridad, y definimos contigo dónde residen y quién puede acceder a ellos antes de empezar.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto dura una implantación?</summary>
+        <p class="faq-a">La mayoría de soluciones se implantan en semanas, no en meses. Empezamos por lo que antes aporta valor, para que veas resultados pronto.</p>
+      </details>
+      <details>
+        <summary>¿Esto no es solo para grandes empresas?</summary>
+        <p class="faq-a">Al contrario. Existimos precisamente para que la PYME acceda a capacidades que hasta hace poco solo estaban al alcance de las grandes corporaciones.</p>
+      </details>
+      <details>
+        <summary>¿Cómo se factura?</summary>
+        <p class="faq-a">Con un proyecto de implantación y, después, un mantenimiento para que la solución siga funcionando y evolucionando con tu negocio.</p>
+      </details>
+      <details>
+        <summary>¿La IA va a sustituir a mi equipo?</summary>
+        <p class="faq-a">No. La IA libera a tu equipo de lo repetitivo para que dedique su tiempo a lo que de verdad aporta valor: pensar, decidir y atender a tus clientes.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACTO ═══════════ -->
+<section id="contacto" class="block">
   <div class="wrap">
     <div class="contact-grid">
       <div class="fade-in">
-        <div class="sec-label">// Contacto</div>
-        <h2 class="sec-h">Hablemos</h2>
-        <p class="sec-p" style="max-width:100%">¿Tienes un reto de datos o IA? Cuéntanos qué necesitas y te respondemos en menos de 24 horas.</p>
+        <p class="eyebrow">Contacto</p>
+        <h2 class="sec-h">Agenda un diagnóstico</h2>
+        <p class="sec-lead">Cuéntanos tu reto. En una primera conversación detectamos dónde la IA puede ayudarte y te decimos con franqueza si podemos aportar.</p>
         <div class="c-detail">
           <div class="c-detail-l">Email</div>
           <div class="c-detail-v"><a href="mailto:hola@dataplex.es">hola@dataplex.es</a></div>
         </div>
         <div class="c-detail">
           <div class="c-detail-l">LinkedIn</div>
-          <div class="c-detail-v" style="font-size:14px"><a href="https://linkedin.com/company/dataplex-es" target="_blank" rel="noopener">linkedin.com/company/dataplex-es</a></div>
+          <div class="c-detail-v"><a href="https://linkedin.com/company/dataplex-es" target="_blank" rel="noopener">linkedin.com/company/dataplex-es</a></div>
         </div>
         <div class="c-detail">
-          <div class="c-detail-l">Ubicación</div>
-          <div class="c-detail-v plain">España · Remoto & Presencial</div>
+          <div class="c-detail-l">Dónde estamos</div>
+          <div class="c-detail-v">España · Remoto y presencial</div>
         </div>
       </div>
 
-      <!-- Form — connect to Formspree: replace XXXXXXXX with your form ID -->
-      <!-- Sign up free at formspree.io, create a form, copy the endpoint -->
+      <!-- Backend del formulario pendiente: se conecta en el cambio `corporate-compliance` (Formspree real). -->
       <form class="cform fade-in" action="https://formspree.io/f/XXXXXXXX" method="POST">
         <div class="f-field">
           <label class="f-label" for="fn">Nombre</label>
@@ -889,10 +528,14 @@ footer{
           <input class="f-input" type="email" id="fe" name="email" placeholder="tu@empresa.com" required>
         </div>
         <div class="f-field">
-          <label class="f-label" for="fm">Mensaje</label>
-          <textarea class="f-input" id="fm" name="message" placeholder="Cuéntanos tu reto de datos..." required></textarea>
+          <label class="f-label" for="fc">Empresa</label>
+          <input class="f-input" type="text" id="fc" name="company" placeholder="Nombre de tu empresa">
         </div>
-        <button type="submit" class="f-btn">Enviar →</button>
+        <div class="f-field">
+          <label class="f-label" for="fm">¿Qué reto quieres resolver?</label>
+          <textarea class="f-input" id="fm" name="message" placeholder="Cuéntanos brevemente tu situación..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start">Agenda un diagnóstico</button>
       </form>
     </div>
   </div>
@@ -900,54 +543,21 @@ footer{
 
 </main>
 
-<!-- ════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════ -->
+<!-- ═══════════ FOOTER ═══════════ -->
 <footer>
   <div class="wrap ft-in">
     <div class="ft-logo">
-      <svg viewBox="9 20 43 43" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="21" width="6" height="6" fill="#00aaff"/>
-        <rect x="17" y="21" width="6" height="6" fill="#00aaff"/>
-        <rect x="24" y="21" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="31" y="21" width="6" height="6" fill="#00aaff"/>
-        <rect x="38" y="21" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="45" y="21" width="6" height="6" fill="#00aaff"/>
-        <rect x="10" y="28" width="6" height="6" fill="#00aaff"/>
-        <rect x="17" y="28" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="24" y="28" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="31" y="28" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="38" y="28" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="45" y="28" width="6" height="6" fill="#00aaff"/>
-        <rect x="10" y="35" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="17" y="35" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="24" y="35" width="6" height="6" fill="#00aaff"/>
-        <rect x="31" y="35" width="6" height="6" fill="#00aaff"/>
-        <rect x="38" y="35" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="45" y="35" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="10" y="42" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="17" y="42" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="24" y="42" width="6" height="6" fill="#00aaff"/>
-        <rect x="31" y="42" width="6" height="6" fill="#00aaff"/>
-        <rect x="38" y="42" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="45" y="42" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="10" y="49" width="6" height="6" fill="#00aaff"/>
-        <rect x="17" y="49" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="24" y="49" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="31" y="49" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="38" y="49" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="45" y="49" width="6" height="6" fill="#00aaff"/>
-        <rect x="10" y="56" width="6" height="6" fill="#00aaff"/>
-        <rect x="17" y="56" width="6" height="6" fill="#00aaff"/>
-        <rect x="24" y="56" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="31" y="56" width="6" height="6" fill="#00aaff"/>
-        <rect x="38" y="56" width="6" height="6" fill="#00aaff" opacity=".04"/>
-        <rect x="45" y="56" width="6" height="6" fill="#00aaff"/>
+      <svg width="34" height="24" viewBox="0 0 170 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="13" cy="12" r="1.5" fill="#00aaff" opacity=".06"/><circle cx="37" cy="12" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="61" cy="12" r="5" fill="#00aaff" opacity=".41"/><circle cx="85" cy="12" r="6" fill="#00aaff" opacity=".47"/><circle cx="109" cy="12" r="5" fill="#00aaff" opacity=".41"/><circle cx="133" cy="12" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="157" cy="12" r="1.5" fill="#00aaff" opacity=".06"/>
+        <circle cx="13" cy="36" r="2" fill="#00aaff" opacity=".17"/><circle cx="37" cy="36" r="5" fill="#00aaff" opacity=".41"/><circle cx="61" cy="36" r="8" fill="#00aaff" opacity=".62"/><circle cx="85" cy="36" r="10" fill="#00aaff" opacity=".74"/><circle cx="109" cy="36" r="8" fill="#00aaff" opacity=".62"/><circle cx="133" cy="36" r="5" fill="#00aaff" opacity=".41"/><circle cx="157" cy="36" r="2" fill="#00aaff" opacity=".17"/>
+        <circle cx="13" cy="60" r="3" fill="#00aaff" opacity=".21"/><circle cx="37" cy="60" r="6" fill="#00aaff" opacity=".47"/><circle cx="61" cy="60" r="10" fill="#00aaff" opacity=".74"/><circle cx="85" cy="60" r="12" fill="#00aaff" opacity="1"/><circle cx="109" cy="60" r="10" fill="#00aaff" opacity=".74"/><circle cx="133" cy="60" r="6" fill="#00aaff" opacity=".47"/><circle cx="157" cy="60" r="3" fill="#00aaff" opacity=".21"/>
+        <circle cx="13" cy="84" r="2" fill="#00aaff" opacity=".17"/><circle cx="37" cy="84" r="5" fill="#00aaff" opacity=".41"/><circle cx="61" cy="84" r="8" fill="#00aaff" opacity=".62"/><circle cx="85" cy="84" r="10" fill="#00aaff" opacity=".74"/><circle cx="109" cy="84" r="8" fill="#00aaff" opacity=".62"/><circle cx="133" cy="84" r="5" fill="#00aaff" opacity=".41"/><circle cx="157" cy="84" r="2" fill="#00aaff" opacity=".17"/>
+        <circle cx="13" cy="108" r="1.5" fill="#00aaff" opacity=".06"/><circle cx="37" cy="108" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="61" cy="108" r="5" fill="#00aaff" opacity=".41"/><circle cx="85" cy="108" r="6" fill="#00aaff" opacity=".47"/><circle cx="109" cy="108" r="5" fill="#00aaff" opacity=".41"/><circle cx="133" cy="108" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="157" cy="108" r="1.5" fill="#00aaff" opacity=".06"/>
       </svg>
-      <span class="ft-brand">DATAPLEX</span>
+      <span class="ft-brand">Dataplex</span>
     </div>
-    <p class="ft-copy">© 2026 Dataplex. Todos los derechos reservados.</p>
-    <nav class="ft-links" aria-label="Footer">
+    <p class="ft-copy">© 2026 Dataplex. Decisiones más inteligentes. Procesos más eficientes.</p>
+    <nav class="ft-links" aria-label="Pie">
       <a href="mailto:hola@dataplex.es">hola@dataplex.es</a>
       <a href="https://linkedin.com/company/dataplex-es" target="_blank" rel="noopener">LinkedIn</a>
     </nav>
@@ -955,37 +565,33 @@ footer{
 </footer>
 
 <script>
-// ── Scroll-based nav active link ────────────────────────
-const sections = document.querySelectorAll('section[id]');
-const links    = document.querySelectorAll('.nav-links a');
-const nav      = document.getElementById('nav');
+// ── Nav: borde al hacer scroll ──────────────────────────
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.style.borderBottomColor = window.scrollY > 16 ? 'var(--line)' : 'transparent';
+}, { passive: true });
+
+// ── Nav: enlace activo según sección ────────────────────
+const navLinks = document.querySelectorAll('.nav-links a');
+const linkIds = [...navLinks].map(a => a.getAttribute('href').slice(1));
+const observed = linkIds.map(id => document.getElementById(id)).filter(Boolean);
 
 const ioNav = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      links.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
-      });
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
     }
   });
 }, { rootMargin: '-45% 0px -50% 0px' });
+observed.forEach(s => ioNav.observe(s));
 
-sections.forEach(s => ioNav.observe(s));
-
-// Nav border accent on scroll
-window.addEventListener('scroll', () => {
-  nav.style.borderBottomColor = window.scrollY > 20
-    ? 'rgba(0,170,255,.14)' : 'var(--bd)';
-}, { passive: true });
-
-// ── Fade-in on scroll ────────────────────────────────────
-const fades = document.querySelectorAll('.fade-in');
+// ── Fade-in discreto al entrar en viewport ──────────────
 const ioFade = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); ioFade.unobserve(e.target); }
   });
-}, { threshold: .12 });
-fades.forEach(el => ioFade.observe(el));
+}, { threshold: .14 });
+document.querySelectorAll('.fade-in').forEach(el => ioFade.observe(el));
 </script>
 
 </body>
