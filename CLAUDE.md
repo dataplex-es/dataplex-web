@@ -20,6 +20,18 @@ npx serve .
 
 **Deployment:** Push to `main` on GitHub and GitHub Pages auto-deploys to `dataplex.es` (configured via the `CNAME` file).
 
+## Git Workflow
+
+The maintainer works solo and prefers a fully automated branch → PR → merge → back-to-main cycle. Drive it end to end; the only manual step expected from the user is approving the merge (or saying "hazlo tú").
+
+For any non-trivial change:
+1. Create a new branch off `main` automatically — do not ask first.
+2. Make the changes and show the result.
+3. Open the PR with `gh pr create`.
+4. After the merge, delete the branch (local + remote) and return to `main` without being asked.
+
+Trivial one-line tweaks may go straight to `main`. When in doubt, branch.
+
 ## Architecture
 
 Everything is self-contained in `index.html` (~1000 lines), structured as:
