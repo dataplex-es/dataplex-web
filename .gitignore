@@ -1,2 +1,5 @@
-# Claude Code local config & session data
-.claude/
+# Claude Code local config (machine-specific, not shared)
+.claude/settings.local.json
+.claude/launch.json
+
+# Shared project assets under .claude/ (commands, skills) ARE versioned.
