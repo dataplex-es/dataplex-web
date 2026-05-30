@@ -297,6 +297,19 @@ section{position:relative}
 .f-input::placeholder{color:var(--tx-3)}
 .dark .f-input::placeholder{color:#6b7488}
 textarea.f-input{resize:vertical;min-height:120px}
+.f-consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--tx-2);line-height:1.5}
+.dark .f-consent{color:var(--on-ink-2)}
+.f-consent input{margin-top:3px;flex-shrink:0;width:16px;height:16px;accent-color:var(--ac)}
+.f-consent a{color:var(--ac)}
+.dark .f-consent a{color:var(--ac-2)}
+
+/* Cookie banner */
+.cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:200;background:var(--ink);border-top:1px solid var(--ink-line)}
+.cookie-banner .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:16px;padding-bottom:16px;flex-wrap:wrap}
+.cookie-banner p{font-size:14px;color:var(--on-ink-2);margin:0;max-width:760px;line-height:1.5}
+.cookie-banner a{color:var(--ac-2)}
+.cookie-banner .btn{flex-shrink:0;padding:11px 22px}
+.cookie-banner[hidden]{display:none}
 
 /* ═══════════════════════════════════════════════════════
    FOOTER (dark)
@@ -645,6 +658,10 @@ footer.dark{background:var(--ink);border-top-color:var(--ink-line)}
           <label class="f-label" for="fm">¿Qué reto quieres resolver?</label>
           <textarea class="f-input" id="fm" name="message" placeholder="Cuéntanos brevemente tu situación..." required></textarea>
         </div>
+        <label class="f-consent">
+          <input type="checkbox" name="consent" required>
+          <span>He leído y acepto la <a href="/privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>.</span>
+        </label>
         <button type="submit" class="btn btn-primary" style="align-self:flex-start">Agenda un diagnóstico</button>
       </form>
     </div>
@@ -668,10 +685,21 @@ footer.dark{background:var(--ink);border-top-color:var(--ink-line)}
     </div>
     <p class="ft-copy">© 2026 Dataplex. Decisiones más inteligentes. Procesos más eficientes.</p>
     <nav class="ft-links" aria-label="Pie">
+      <a href="/aviso-legal.html">Aviso legal</a>
+      <a href="/privacidad.html">Privacidad</a>
+      <a href="/cookies.html">Cookies</a>
       <a href="mailto:hola@dataplex.es">hola@dataplex.es</a>
     </nav>
   </div>
 </footer>
+
+<!-- ═══════════ AVISO DE COOKIES ═══════════ -->
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <div class="wrap">
+    <p>Usamos almacenamiento técnico necesario y servicios de terceros (como Google Fonts). No usamos cookies de seguimiento ni de publicidad. Más información en la <a href="/cookies.html">Política de cookies</a>.</p>
+    <button id="cookie-accept" class="btn btn-primary">Aceptar</button>
+  </div>
+</div>
 
 <script>
 // ── Nav: sólido al hacer scroll, transparente sobre el hero ──
@@ -700,6 +728,14 @@ const ioFade = new IntersectionObserver(entries => {
   });
 }, { threshold: .14 });
 document.querySelectorAll('.fade-in').forEach(el => ioFade.observe(el));
+
+// ── Aviso de cookies (recuerda la elección) ─────────────
+const cookieBanner = document.getElementById('cookie-banner');
+if (cookieBanner && !localStorage.getItem('dpx-cookies')) cookieBanner.hidden = false;
+document.getElementById('cookie-accept')?.addEventListener('click', () => {
+  localStorage.setItem('dpx-cookies', '1');
+  cookieBanner.hidden = true;
+});
 </script>
 
 </body>
