@@ -141,14 +141,14 @@ button{cursor:pointer;font-family:inherit}
     var(--hero-img);
   background-size:cover;background-position:center;
 }
-.hero-content{position:relative;z-index:1;max-width:780px}
-.hero-lockup{display:inline-flex;align-items:center;gap:8px;margin-bottom:30px}
-.hero-lockup span{font-family:var(--wordmark);font-weight:600;font-size:22px;color:#fff;letter-spacing:-.5px}
+.hero-content{position:relative;z-index:1;max-width:960px}
+.hero-lockup{display:inline-flex;align-items:center;gap:13px;margin-bottom:34px}
+.hero-lockup span{font-family:var(--wordmark);font-weight:600;font-size:40px;color:#fff;letter-spacing:-.5px}
 .hero .eyebrow{color:var(--ac-2)}
 .hero h1{
   font-family:var(--serif);font-weight:500;
-  font-size:clamp(40px,5.8vw,68px);line-height:1.04;
-  letter-spacing:-1.5px;color:#fff;margin-bottom:24px;
+  font-size:clamp(38px,5vw,56px);line-height:1.06;
+  letter-spacing:-1.2px;color:#fff;margin-bottom:24px;
 }
 .hero h1 .em{font-style:italic;color:var(--ac-2)}
 .hero-lead{font-size:clamp(17px,1.7vw,20px);color:#cfd4e0;max-width:540px;line-height:1.7;margin-bottom:36px}
@@ -254,7 +254,7 @@ section{position:relative}
 .faq-list{max-width:780px;margin:0 auto}
 .faq details{border-bottom:1px solid var(--line)}
 .faq summary{
-  list-style:none;cursor:pointer;padding:34px 0;
+  list-style:none;cursor:pointer;padding:26px 0;
   font-family:var(--serif);font-weight:500;font-size:19px;color:var(--tx);
   display:flex;align-items:center;gap:18px;transition:color .2s;
 }
@@ -302,6 +302,12 @@ textarea.f-input{resize:vertical;min-height:120px}
 .f-consent input{margin-top:3px;flex-shrink:0;width:16px;height:16px;accent-color:var(--ac)}
 .f-consent a{color:var(--ac)}
 .dark .f-consent a{color:var(--ac-2)}
+.form-msg{font-size:15px;line-height:1.6;padding:14px 16px;border-radius:4px}
+.form-msg.ok{background:rgba(0,170,255,.14);color:#cfe6ff;border:1px solid var(--ac-line)}
+.form-msg.err{background:rgba(255,90,90,.12);color:#ffd2d2;border:1px solid rgba(255,90,90,.4)}
+.form-ok-box{background:var(--ink-2);border:1px solid var(--ink-line);border-radius:6px;padding:32px 30px}
+.form-ok-box h3{font-family:var(--serif);font-weight:600;font-size:22px;color:#fff;margin-bottom:8px}
+.form-ok-box p{color:var(--on-ink-2);font-size:15px;line-height:1.6}
 
 /* Cookie banner */
 .cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:200;background:var(--ink);border-top:1px solid var(--ink-line)}
@@ -388,7 +394,7 @@ footer.dark{background:var(--ink);border-top-color:var(--ink-line)}
 <section id="inicio" class="hero">
   <div class="wrap hero-content">
     <span class="hero-lockup">
-      <svg width="46" height="35" viewBox="0 0 170 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg width="84" height="64" viewBox="0 0 170 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="25" cy="25" r="1.5" fill="#00aaff" opacity=".06"/><circle cx="45" cy="25" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="65" cy="25" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="85" cy="25" r="7" fill="#00aaff" opacity=".47"/><circle cx="105" cy="25" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="125" cy="25" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="145" cy="25" r="1.5" fill="#00aaff" opacity=".06"/>
         <circle cx="25" cy="45" r="2" fill="#00aaff" opacity=".17"/><circle cx="45" cy="45" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="65" cy="45" r="8" fill="#00aaff" opacity=".62"/><circle cx="85" cy="45" r="10" fill="#00aaff" opacity=".74"/><circle cx="105" cy="45" r="8" fill="#00aaff" opacity=".62"/><circle cx="125" cy="45" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="145" cy="45" r="2" fill="#00aaff" opacity=".17"/>
         <circle cx="25" cy="65" r="3" fill="#00aaff" opacity=".21"/><circle cx="45" cy="65" r="7" fill="#00aaff" opacity=".47"/><circle cx="65" cy="65" r="10" fill="#00aaff" opacity=".74"/><circle cx="85" cy="65" r="13" fill="#00aaff" opacity="1"/><circle cx="105" cy="65" r="10" fill="#00aaff" opacity=".74"/><circle cx="125" cy="65" r="7" fill="#00aaff" opacity=".47"/><circle cx="145" cy="65" r="3" fill="#00aaff" opacity=".21"/>
@@ -736,6 +742,37 @@ document.getElementById('cookie-accept')?.addEventListener('click', () => {
   localStorage.setItem('dpx-cookies', '1');
   cookieBanner.hidden = true;
 });
+
+// ── Formulario por AJAX (sin redirigir a Formspree) ─────
+const cform = document.querySelector('.cform');
+cform?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = cform.querySelector('button[type="submit"]');
+  const original = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Enviando…';
+  try {
+    const res = await fetch(cform.action, {
+      method: 'POST',
+      body: new FormData(cform),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      cform.innerHTML = '<div class="form-ok-box"><h3>¡Gracias!</h3><p>Hemos recibido tu mensaje. Te responderemos en menos de 24 horas.</p></div>';
+    } else {
+      const data = await res.json().catch(() => ({}));
+      const msg = data?.errors?.[0]?.message || 'No se pudo enviar. Inténtalo de nuevo o escríbenos a hola@dataplex.es.';
+      showFormMsg(msg, 'err'); btn.disabled = false; btn.textContent = original;
+    }
+  } catch (err) {
+    showFormMsg('No se pudo enviar. Revisa tu conexión o escríbenos a hola@dataplex.es.', 'err');
+    btn.disabled = false; btn.textContent = original;
+  }
+});
+function showFormMsg(text, kind) {
+  let el = cform.querySelector('.form-msg');
+  if (!el) { el = document.createElement('div'); el.className = 'form-msg'; cform.insertBefore(el, cform.querySelector('button[type="submit"]')); }
+  el.className = 'form-msg ' + kind; el.textContent = text;
+}
 </script>
 
 </body>
