@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dataplex — Consultoría de IA para la dirección y gestión de la PYME. Decisiones más inteligentes. Procesos más eficientes.">
+  <meta name="description" content="Dataplex — IA diseñada para la dirección y la gestión de la PYME. Decisiones más inteligentes. Procesos más eficientes.">
   <meta property="og:title" content="Dataplex — Decisiones más inteligentes. Procesos más eficientes.">
-  <meta property="og:description" content="Consultoría de IA para la PYME. Llevamos a tu empresa las capacidades que antes solo tenían las grandes.">
+  <meta property="og:description" content="IA diseñada para la dirección y la gestión de la PYME. Las capacidades que antes solo tenían las grandes, ahora a tu medida.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dataplex.es">
   <title>Dataplex — Decisiones más inteligentes. Procesos más eficientes.</title>
@@ -19,7 +19,7 @@
 
 <style>
 /* ═══════════════════════════════════════════════════════
-   TOKENS — light editorial
+   TOKENS
 ═══════════════════════════════════════════════════════ */
 :root {
   --bg:        #f6f4ef;   /* warm cream */
@@ -27,12 +27,20 @@
   --surface-2: #fbfaf7;
   --line:      #e4e0d6;   /* subtle borders */
   --line-2:    #d8d3c6;
-  --ac:        #00aaff;   /* Dataplex blue — accent only */
+  --ac:        #00aaff;   /* Dataplex blue — accent */
+  --ac-2:      #5cc6ff;   /* lighter blue for dark backgrounds */
   --ac-soft:   rgba(0,170,255,.10);
   --ac-line:   rgba(0,170,255,.30);
   --tx:        #17171f;   /* near-black */
   --tx-2:      #56565f;   /* muted body */
   --tx-3:      #8a8a93;   /* faint labels */
+  /* dark sections */
+  --ink:       #0d1320;   /* deep navy-black */
+  --ink-2:     #161d2c;   /* cards on dark */
+  --ink-line:  rgba(255,255,255,.10);
+  --on-ink:    #e9ebf1;   /* body text on dark */
+  --on-ink-2:  #9aa3b5;   /* muted text on dark */
+  --hero-img:  url('assets/hero.jpg');  /* editorial business photo, Pexels free license */
   --serif:     'Fraunces', Georgia, serif;
   --sans:      'Inter', system-ui, sans-serif;
   --nav-h:     72px;
@@ -86,23 +94,31 @@ button{cursor:pointer;font-family:inherit}
 .btn-primary:hover{background:#0098e0;transform:translateY(-1px)}
 .btn-ghost{color:var(--tx);border:1px solid var(--line-2)}
 .btn-ghost:hover{border-color:var(--tx);background:var(--surface)}
+.btn-light-ghost{color:#fff;border:1px solid rgba(255,255,255,.4)}
+.btn-light-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1)}
 
 /* ═══════════════════════════════════════════════════════
-   NAV
+   NAV (transparent over hero, solid on scroll)
 ═══════════════════════════════════════════════════════ */
-nav{
+#nav{
   position:fixed;top:0;left:0;right:0;height:var(--nav-h);
-  background:rgba(246,244,239,.82);
+  background:transparent;border-bottom:1px solid transparent;
+  transition:background .25s,border-color .25s;z-index:100;
+}
+#nav.solid{
+  background:rgba(246,244,239,.85);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border-bottom:1px solid transparent;transition:border-color .25s;
-  z-index:100;
+  border-bottom-color:var(--line);
 }
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:100%}
 .nav-logo{display:flex;align-items:center;gap:11px}
-.nav-brand{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--tx);letter-spacing:-.3px}
+.nav-brand{font-family:var(--serif);font-weight:600;font-size:21px;color:#fff;letter-spacing:-.3px;transition:color .25s}
+#nav.solid .nav-brand{color:var(--tx)}
 .nav-links{display:flex;align-items:center;gap:34px}
-.nav-links a{font-size:15px;font-weight:500;color:var(--tx-2);transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--tx)}
+.nav-links a{font-size:15px;font-weight:500;color:rgba(255,255,255,.82);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+#nav.solid .nav-links a{color:var(--tx-2)}
+#nav.solid .nav-links a:hover,#nav.solid .nav-links a.active{color:var(--tx)}
 .nav-cta{
   font-size:14px;font-weight:600;color:#fff;background:var(--ac);
   padding:10px 20px;border-radius:2px;transition:background .2s;
@@ -110,20 +126,32 @@ nav{
 .nav-cta:hover{background:#0098e0}
 
 /* ═══════════════════════════════════════════════════════
-   HERO
+   HERO (full-bleed editorial photo + dark overlay)
 ═══════════════════════════════════════════════════════ */
-.hero{padding:calc(var(--nav-h) + 90px) 0 100px}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+.hero{
+  position:relative;min-height:92vh;display:flex;align-items:center;
+  padding:calc(var(--nav-h) + 80px) 0 96px;
+  background:var(--ink);color:#fff;overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;z-index:0;
+  background-image:
+    linear-gradient(180deg, rgba(8,12,22,.74), rgba(8,12,22,.84)),
+    var(--hero-img);
+  background-size:cover;background-position:center;
+}
+.hero-content{position:relative;z-index:1;max-width:780px}
+.hero-lockup{display:inline-flex;align-items:center;gap:12px;margin-bottom:30px}
+.hero-lockup span{font-family:var(--serif);font-weight:600;font-size:23px;color:#fff;letter-spacing:-.3px}
+.hero .eyebrow{color:var(--ac-2)}
 .hero h1{
   font-family:var(--serif);font-weight:500;
-  font-size:clamp(40px,5.6vw,66px);line-height:1.05;
-  letter-spacing:-1.5px;color:var(--tx);margin-bottom:26px;
+  font-size:clamp(40px,5.8vw,68px);line-height:1.04;
+  letter-spacing:-1.5px;color:#fff;margin-bottom:24px;
 }
-.hero h1 .em{font-style:italic;color:var(--ac)}
-.hero-lead{font-size:clamp(17px,1.7vw,20px);color:var(--tx-2);max-width:480px;line-height:1.7;margin-bottom:36px}
+.hero h1 .em{font-style:italic;color:var(--ac-2)}
+.hero-lead{font-size:clamp(17px,1.7vw,20px);color:#cfd4e0;max-width:540px;line-height:1.7;margin-bottom:36px}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
-.hero-vis{display:flex;align-items:center;justify-content:center}
-.dots-hero{width:100%;max-width:380px;height:auto}
 
 /* ═══════════════════════════════════════════════════════
    SECTION SHELL
@@ -131,6 +159,23 @@ nav{
 section{position:relative}
 .block{padding:100px 0;border-top:1px solid var(--line)}
 .block-hd{max-width:720px;margin-bottom:56px}
+
+/* Dark sections */
+.dark{background:var(--ink);color:var(--on-ink);border-top-color:var(--ink-line)}
+.dark .sec-h{color:#fff}
+.dark .sec-lead{color:var(--on-ink-2)}
+.dark .eyebrow{color:var(--ac-2)}
+
+/* ═══════════════════════════════════════════════════════
+   DECLARATION (Harvey-style positioning statement)
+═══════════════════════════════════════════════════════ */
+.declaration{padding:110px 0;border-top:1px solid var(--line)}
+.declaration-text{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(26px,3.4vw,40px);line-height:1.32;
+  letter-spacing:-.5px;max-width:960px;color:var(--tx);
+}
+.declaration-text span{color:var(--tx-2)}
 
 /* ═══════════════════════════════════════════════════════
    ENFOQUE
@@ -162,20 +207,28 @@ section{position:relative}
 .prod-meta .v{color:var(--tx-2)}
 
 /* ═══════════════════════════════════════════════════════
-   CREDIBILIDAD
+   CREDIBILIDAD (dark)
 ═══════════════════════════════════════════════════════ */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:30px}
+.dark .stat{background:var(--ink-2);border-color:var(--ink-line)}
 .stat-q{font-family:var(--serif);font-weight:500;font-size:19px;color:var(--tx);line-height:1.4;margin-bottom:16px}
+.dark .stat-q{color:#fff}
 .stat-src{font-size:13px;font-weight:600;color:var(--tx-3);letter-spacing:.3px}
+.dark .stat-src{color:var(--on-ink-2)}
 .cred-note{
   background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:4px;
   padding:24px 28px;margin-bottom:24px;
 }
+.dark .cred-note{background:rgba(0,170,255,.13);border-left-color:var(--ac-2)}
 .cred-note .tag{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ac);display:block;margin-bottom:8px}
+.dark .cred-note .tag{color:var(--ac-2)}
 .cred-note p{font-size:16px;color:var(--tx-2);line-height:1.65}
+.dark .cred-note p{color:#cfd4e0}
 .cred-line{font-size:16px;color:var(--tx-2);line-height:1.7;max-width:680px}
 .cred-line strong{color:var(--tx);font-weight:600}
+.dark .cred-line{color:var(--on-ink-2)}
+.dark .cred-line strong{color:#fff}
 
 /* ═══════════════════════════════════════════════════════
    SOBRE NOSOTROS
@@ -203,43 +256,53 @@ section{position:relative}
 .faq-a{padding:0 0 24px;font-size:16px;color:var(--tx-2);line-height:1.7;max-width:660px}
 
 /* ═══════════════════════════════════════════════════════
-   CONTACTO
+   CONTACTO (dark)
 ═══════════════════════════════════════════════════════ */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
 .c-detail{margin-top:26px}
 .c-detail-l{font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--tx-3);margin-bottom:4px}
+.dark .c-detail-l{color:var(--on-ink-2)}
 .c-detail-v{font-size:16px;color:var(--tx)}
+.dark .c-detail-v{color:var(--on-ink)}
 .c-detail-v a:hover{color:var(--ac)}
+.dark .c-detail-v a:hover{color:var(--ac-2)}
 .cform{display:flex;flex-direction:column;gap:16px}
 .f-field{display:flex;flex-direction:column;gap:7px}
 .f-label{font-size:14px;font-weight:500;color:var(--tx-2)}
+.dark .f-label{color:var(--on-ink-2)}
 .f-input{
   background:var(--surface);border:1px solid var(--line-2);border-radius:3px;
   color:var(--tx);padding:13px 15px;font-family:var(--sans);font-size:15px;
   outline:none;transition:border-color .2s;
 }
+.dark .f-input{background:var(--ink-2);border-color:var(--ink-line);color:#fff}
 .f-input:focus{border-color:var(--ac)}
+.dark .f-input:focus{border-color:var(--ac-2)}
 .f-input::placeholder{color:var(--tx-3)}
+.dark .f-input::placeholder{color:#6b7488}
 textarea.f-input{resize:vertical;min-height:120px}
 
 /* ═══════════════════════════════════════════════════════
-   FOOTER
+   FOOTER (dark)
 ═══════════════════════════════════════════════════════ */
 footer{padding:44px 0;border-top:1px solid var(--line)}
+footer.dark{background:var(--ink);border-top-color:var(--ink-line)}
 .ft-in{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .ft-logo{display:flex;align-items:center;gap:10px}
 .ft-brand{font-family:var(--serif);font-weight:600;font-size:17px;color:var(--tx)}
+.dark .ft-brand{color:#fff}
 .ft-copy{font-size:13px;color:var(--tx-3)}
+.dark .ft-copy{color:var(--on-ink-2)}
 .ft-links{display:flex;gap:22px}
 .ft-links a{font-size:14px;color:var(--tx-2);transition:color .2s}
+.dark .ft-links a{color:var(--on-ink-2)}
 .ft-links a:hover{color:var(--ac)}
+.dark .ft-links a:hover{color:var(--ac-2)}
 
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════════════ */
 @media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr;gap:48px}
-  .hero-vis{order:-1;max-width:300px;margin:0 auto}
   .steps{grid-template-columns:1fr 1fr;gap:32px}
   .prod-grid{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr}
@@ -250,7 +313,8 @@ footer{padding:44px 0;border-top:1px solid var(--line)}
 }
 @media(max-width:600px){
   .wrap{padding:0 22px}
-  .block{padding:72px 0}
+  .block,.declaration{padding:72px 0}
+  .hero{min-height:auto;padding:calc(var(--nav-h) + 64px) 0 72px}
   .steps{grid-template-columns:1fr}
   .ft-in{flex-direction:column;align-items:flex-start}
 }
@@ -292,27 +356,31 @@ footer{padding:44px 0;border-top:1px solid var(--line)}
 
 <!-- ═══════════ HERO ═══════════ -->
 <section id="inicio" class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <p class="eyebrow">IA para la dirección de la PYME</p>
-        <h1>Decisiones más <span class="em">inteligentes</span>.<br>Procesos más <span class="em">eficientes</span>.</h1>
-        <p class="hero-lead">Llevamos a tu empresa las capacidades de IA que hasta hace poco solo estaban al alcance de las grandes. Sin jerga, sin proyectos eternos: soluciones que se traducen en mejores decisiones y menos trabajo manual.</p>
-        <div class="hero-ctas">
-          <a href="#contacto" class="btn btn-primary">Agenda un diagnóstico</a>
-          <a href="#productos" class="btn btn-ghost">Ver productos</a>
-        </div>
-      </div>
-      <div class="hero-vis">
-        <svg class="dots-hero" viewBox="0 0 170 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="25" cy="25" r="1.5" fill="#00aaff" opacity=".06"/><circle cx="45" cy="25" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="65" cy="25" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="85" cy="25" r="7" fill="#00aaff" opacity=".47"/><circle cx="105" cy="25" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="125" cy="25" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="145" cy="25" r="1.5" fill="#00aaff" opacity=".06"/>
-          <circle cx="25" cy="45" r="2" fill="#00aaff" opacity=".17"/><circle cx="45" cy="45" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="65" cy="45" r="8" fill="#00aaff" opacity=".62"/><circle cx="85" cy="45" r="10" fill="#00aaff" opacity=".74"/><circle cx="105" cy="45" r="8" fill="#00aaff" opacity=".62"/><circle cx="125" cy="45" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="145" cy="45" r="2" fill="#00aaff" opacity=".17"/>
-          <circle cx="25" cy="65" r="3" fill="#00aaff" opacity=".21"/><circle cx="45" cy="65" r="7" fill="#00aaff" opacity=".47"/><circle cx="65" cy="65" r="10" fill="#00aaff" opacity=".74"/><circle cx="85" cy="65" r="13" fill="#00aaff" opacity="1"/><circle cx="105" cy="65" r="10" fill="#00aaff" opacity=".74"/><circle cx="125" cy="65" r="7" fill="#00aaff" opacity=".47"/><circle cx="145" cy="65" r="3" fill="#00aaff" opacity=".21"/>
-          <circle cx="25" cy="85" r="2" fill="#00aaff" opacity=".17"/><circle cx="45" cy="85" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="65" cy="85" r="8" fill="#00aaff" opacity=".62"/><circle cx="85" cy="85" r="10" fill="#00aaff" opacity=".74"/><circle cx="105" cy="85" r="8" fill="#00aaff" opacity=".62"/><circle cx="125" cy="85" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="145" cy="85" r="2" fill="#00aaff" opacity=".17"/>
-          <circle cx="25" cy="105" r="1.5" fill="#00aaff" opacity=".06"/><circle cx="45" cy="105" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="65" cy="105" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="85" cy="105" r="7" fill="#00aaff" opacity=".47"/><circle cx="105" cy="105" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="125" cy="105" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="145" cy="105" r="1.5" fill="#00aaff" opacity=".06"/>
-        </svg>
-      </div>
+  <div class="wrap hero-content">
+    <span class="hero-lockup">
+      <svg width="46" height="35" viewBox="0 0 170 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="25" cy="25" r="1.5" fill="#00aaff" opacity=".06"/><circle cx="45" cy="25" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="65" cy="25" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="85" cy="25" r="7" fill="#00aaff" opacity=".47"/><circle cx="105" cy="25" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="125" cy="25" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="145" cy="25" r="1.5" fill="#00aaff" opacity=".06"/>
+        <circle cx="25" cy="45" r="2" fill="#00aaff" opacity=".17"/><circle cx="45" cy="45" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="65" cy="45" r="8" fill="#00aaff" opacity=".62"/><circle cx="85" cy="45" r="10" fill="#00aaff" opacity=".74"/><circle cx="105" cy="45" r="8" fill="#00aaff" opacity=".62"/><circle cx="125" cy="45" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="145" cy="45" r="2" fill="#00aaff" opacity=".17"/>
+        <circle cx="25" cy="65" r="3" fill="#00aaff" opacity=".21"/><circle cx="45" cy="65" r="7" fill="#00aaff" opacity=".47"/><circle cx="65" cy="65" r="10" fill="#00aaff" opacity=".74"/><circle cx="85" cy="65" r="13" fill="#00aaff" opacity="1"/><circle cx="105" cy="65" r="10" fill="#00aaff" opacity=".74"/><circle cx="125" cy="65" r="7" fill="#00aaff" opacity=".47"/><circle cx="145" cy="65" r="3" fill="#00aaff" opacity=".21"/>
+        <circle cx="25" cy="85" r="2" fill="#00aaff" opacity=".17"/><circle cx="45" cy="85" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="65" cy="85" r="8" fill="#00aaff" opacity=".62"/><circle cx="85" cy="85" r="10" fill="#00aaff" opacity=".74"/><circle cx="105" cy="85" r="8" fill="#00aaff" opacity=".62"/><circle cx="125" cy="85" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="145" cy="85" r="2" fill="#00aaff" opacity=".17"/>
+        <circle cx="25" cy="105" r="1.5" fill="#00aaff" opacity=".06"/><circle cx="45" cy="105" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="65" cy="105" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="85" cy="105" r="7" fill="#00aaff" opacity=".47"/><circle cx="105" cy="105" r="5.5" fill="#00aaff" opacity=".41"/><circle cx="125" cy="105" r="3.5" fill="#00aaff" opacity=".25"/><circle cx="145" cy="105" r="1.5" fill="#00aaff" opacity=".06"/>
+      </svg>
+      <span>Dataplex</span>
+    </span>
+    <p class="eyebrow">IA para la dirección de la PYME</p>
+    <h1>Decisiones más <span class="em">inteligentes</span>.<br>Procesos más <span class="em">eficientes</span>.</h1>
+    <p class="hero-lead">Ponemos la inteligencia artificial a trabajar en tus decisiones y tus procesos. Sin jerga y a la medida de tu empresa.</p>
+    <div class="hero-ctas">
+      <a href="#contacto" class="btn btn-primary">Agenda un diagnóstico</a>
+      <a href="#productos" class="btn btn-light-ghost">Ver productos</a>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════ DECLARACIÓN DE POSICIONAMIENTO ═══════════ -->
+<section id="posicionamiento" class="declaration">
+  <div class="wrap">
+    <p class="declaration-text fade-in">Dataplex es IA diseñada para la dirección y la gestión de la PYME. <span>Lleva a tu empresa las capacidades que antes solo tenían las grandes corporaciones y libera a tu equipo para centrarse en lo que realmente aporta valor.</span></p>
   </div>
 </section>
 
@@ -403,8 +471,8 @@ footer{padding:44px 0;border-top:1px solid var(--line)}
   </div>
 </section>
 
-<!-- ═══════════ CREDIBILIDAD ═══════════ -->
-<section id="porque" class="block">
+<!-- ═══════════ CREDIBILIDAD (dark) ═══════════ -->
+<section id="porque" class="block dark">
   <div class="wrap">
     <div class="block-hd fade-in">
       <p class="eyebrow">Por qué ahora</p>
@@ -495,8 +563,8 @@ footer{padding:44px 0;border-top:1px solid var(--line)}
   </div>
 </section>
 
-<!-- ═══════════ CONTACTO ═══════════ -->
-<section id="contacto" class="block">
+<!-- ═══════════ CONTACTO (dark) ═══════════ -->
+<section id="contacto" class="block dark">
   <div class="wrap">
     <div class="contact-grid">
       <div class="fade-in">
@@ -506,10 +574,6 @@ footer{padding:44px 0;border-top:1px solid var(--line)}
         <div class="c-detail">
           <div class="c-detail-l">Email</div>
           <div class="c-detail-v"><a href="mailto:hola@dataplex.es">hola@dataplex.es</a></div>
-        </div>
-        <div class="c-detail">
-          <div class="c-detail-l">LinkedIn</div>
-          <div class="c-detail-v"><a href="https://linkedin.com/company/dataplex-es" target="_blank" rel="noopener">linkedin.com/company/dataplex-es</a></div>
         </div>
         <div class="c-detail">
           <div class="c-detail-l">Dónde estamos</div>
@@ -543,8 +607,8 @@ footer{padding:44px 0;border-top:1px solid var(--line)}
 
 </main>
 
-<!-- ═══════════ FOOTER ═══════════ -->
-<footer>
+<!-- ═══════════ FOOTER (dark) ═══════════ -->
+<footer class="dark">
   <div class="wrap ft-in">
     <div class="ft-logo">
       <svg width="34" height="26" viewBox="0 0 170 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -559,23 +623,21 @@ footer{padding:44px 0;border-top:1px solid var(--line)}
     <p class="ft-copy">© 2026 Dataplex. Decisiones más inteligentes. Procesos más eficientes.</p>
     <nav class="ft-links" aria-label="Pie">
       <a href="mailto:hola@dataplex.es">hola@dataplex.es</a>
-      <a href="https://linkedin.com/company/dataplex-es" target="_blank" rel="noopener">LinkedIn</a>
     </nav>
   </div>
 </footer>
 
 <script>
-// ── Nav: borde al hacer scroll ──────────────────────────
+// ── Nav: sólido al hacer scroll, transparente sobre el hero ──
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.style.borderBottomColor = window.scrollY > 16 ? 'var(--line)' : 'transparent';
-}, { passive: true });
+const setNav = () => nav.classList.toggle('solid', window.scrollY > 16);
+setNav();
+window.addEventListener('scroll', setNav, { passive: true });
 
 // ── Nav: enlace activo según sección ────────────────────
 const navLinks = document.querySelectorAll('.nav-links a');
 const linkIds = [...navLinks].map(a => a.getAttribute('href').slice(1));
 const observed = linkIds.map(id => document.getElementById(id)).filter(Boolean);
-
 const ioNav = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
