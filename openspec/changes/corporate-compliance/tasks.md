@@ -10,7 +10,7 @@
 - [x] 2.1 Añadir enlaces legales (Aviso legal · Privacidad · Cookies) al footer de `index.html`
 - [x] 2.2 Banner de cookies en `index.html` + JS con memoria en `localStorage`
 - [x] 2.3 Añadir casilla de consentimiento obligatoria con enlace a privacidad en el formulario
-- [ ] 2.4 Dejar el envío operativo (Formspree con ID real o fallback mailto) — PENDIENTE: requiere ID de Formspree del usuario o decisión de usar mailto
+- [x] 2.4 Dejar el envío operativo (Formspree con ID real `mlgvvqen`)
 
 ## 3. Verificación
 
